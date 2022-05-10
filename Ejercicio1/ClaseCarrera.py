@@ -1,5 +1,3 @@
-from re import T
-
 
 class Carrera:
     __codigo = 0
@@ -14,3 +12,10 @@ class Carrera:
         self.__duracion = duracion
         self.__titulo = titulo
         self.__tipo = tipo
+
+    def getNombre(self):
+        return self.__nombre
+
+    def getDuracion(self):
+        return self.__duracion
+        

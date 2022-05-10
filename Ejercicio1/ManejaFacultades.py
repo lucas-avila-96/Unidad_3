@@ -24,6 +24,32 @@ class ManejaFacultades:
                     listaCarrera.append(fila)
                 else: 
                     nueva = self.__listaFacultades.append(fila[0], fila[1], fila[2], fila[3], fila[4], listaCarrera)
-                    self.__listaFacultades(nueva)
+                    self.agregarFacultad(nueva)
                     facu = fila
                     listaCarrera = []
+        
+    def buscarFacultad(self):
+        print('Ingresar codigo de facultad')
+        cod = int(input('Codigo'))
+        band = False
+        i = 0
+        facu = None
+        while i <  len(self.__listaFacultades) and not band:
+            if int(self.__listaFacultades[i].getCodigo()) == cod:
+                band = True
+            else: 
+                i += 1
+
+        if band == True:
+            facu = self.__listaFacultades[i]
+        return facu
+
+    def listarDatosCarreras(self):
+        facu = self.buscarFacultad()
+        if facu != None:
+            print(f'{facu.getNombre()}')
+            for carrera in facu.getCarreras():
+                print(f'{carrera.getNombre()}')
+                print(f'{carrera.getDuracion()}')
+        else: 
+            print('no se encontro')

@@ -16,3 +16,12 @@ class Facultad:
         for fila in listaCarreras:
             codigo, nombre, duracion, tipo = fila[0], fila[1], fila[2], fila[3]
             self.__carreras.append(codigo, nombre, duracion, tipo)
+
+    def getCodigo(self):
+        return self.__codigo
+
+    def getNombre(self):
+        return self.__nombre
+        
+    def getCarreras(self):
+        return self.__carreras
