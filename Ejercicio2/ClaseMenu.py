@@ -7,10 +7,10 @@ class Menu:
                             '3':self.opcion3,
                             }
 
-    def opcion(self,op, manejadorFlores):
+    def opcion(self,op, manejadorFlores, manejadorRamos):
         func=self.__switcher.get(op, lambda: print("Opción no válida"))
         if op == '1' or op == '2' or op == '3':
-            func(manejadorFlores)
+            func(manejadorFlores, manejadorRamos)
         else:
             func()
     
@@ -21,7 +21,7 @@ class Menu:
         print('ingrese nombre de la flor para agregar o fin para finalizar')
         nombre = input('Nombre')
         while nombre != 'fin':
-            unaFlor = manejadorFlores.busqueda(nombre)
+            unaFlor = manejadorFlores.buscarFlor(nombre)
             if unaFlor != None:
                 unRamo.agregarFlor(unaFlor)
             print('ingrese nombre de la flor para agregar o fin para finalizar')

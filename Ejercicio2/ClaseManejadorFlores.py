@@ -28,13 +28,14 @@ class ManejadorFlores:
             unaFlor = Flores(numero, nombre, color, descripcion)
             self.agregarFlores(unaFlor)
     
-    def busqueda(self, nombre):
+    def buscarFlor(self, nombre):
         unaFlor = None
         i = 0
-        band = True
+        band = False
         while i < self.__cantidad and not band:
             if self.__arregloFlores[i].getNombre() == nombre:
                 unaFlor = self.__arregloFlores[i]
+                band = True
             else:
                 i += 1
                 
