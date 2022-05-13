@@ -1,13 +1,13 @@
 import numpy as np
 import csv
-import Flores
+from ClaseFlores import Flores
 
 class ManejadorFlores:
     __cantidad = 0
     __dimension = 0
     __incremento = 0
 
-    def __init__(self, dimension, incremento = 1) -> None:
+    def __init__(self, dimension = 0, incremento = 1):
         self.__arregloFlores = np.empty(dimension, dtype = Flores)
         self.__cantidad = 0
         self.__dimension = dimension
@@ -22,8 +22,20 @@ class ManejadorFlores:
     def testFlores(self):
         archivo = open('flores.csv')
         reader = csv.reader(archivo, ';')
-
+        self.__dimension = len(reader)
         for fila in reader:
             numero, nombre, color, descripcion = fila[0], fila[1], fila[2], fila[3]
             unaFlor = Flores(numero, nombre, color, descripcion)
             self.agregarFlores(unaFlor)
+    
+    def busqueda(self, nombre):
+        unaFlor = None
+        i = 0
+        band = True
+        while i < self.__cantidad and not band:
+            if self.__arregloFlores[i].getNombre() == nombre:
+                unaFlor = self.__arregloFlores[i]
+            else:
+                i += 1
+                
+        return unaFlor

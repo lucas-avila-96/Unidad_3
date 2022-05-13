@@ -23,14 +23,12 @@ class ManejaFacultades:
                 if fila[0] == facu[0]:
                     listaCarrera.append(fila)
                 else: 
-                    nueva = self.__listaFacultades.append(fila[0], fila[1], fila[2], fila[3], fila[4], listaCarrera)
+                    nueva = Facultad(fila[0], fila[1], fila[2], fila[3], fila[4], listaCarrera)
                     self.agregarFacultad(nueva)
                     facu = fila
                     listaCarrera = []
         
-    def buscarFacultad(self):
-        print('Ingresar codigo de facultad')
-        cod = int(input('Codigo'))
+    def buscarFacultad(self, cod):
         band = False
         i = 0
         facu = None
@@ -44,7 +42,9 @@ class ManejaFacultades:
             facu = self.__listaFacultades[i]
         return facu
 
-    def listarDatosCarreras(self):
+    def listarDatosCarreras(self, cod):
+        print('Ingresar codigo de facultad')
+        cod = int(input('Codigo'))
         facu = self.buscarFacultad()
         if facu != None:
             print(f'{facu.getNombre()}')
@@ -53,3 +53,8 @@ class ManejaFacultades:
                 print(f'{carrera.getDuracion()}')
         else: 
             print('no se encontro')
+
+    def buscarCarrera(self):
+        print('Ingrese nombre de la carrera')
+        str = input('Nombre:')
+        
