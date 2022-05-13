@@ -7,17 +7,16 @@ class Facultad:
     __telefono = ''
     __carreras = []
 
-    def __init__(self, codigo, nombre, direccion, localidad, telefono, listaCarreras):
+    def __init__(self,codigo,nombre,direccion,localidad,telefono,lista):
         self.__codigo = codigo
         self.__nombre = nombre
         self.__direccion = direccion
         self.__localidad = localidad
         self.__telefono = telefono
-
-        for fila in listaCarreras:
-            codigo, nombre, duracion, tipo = fila[0], fila[1], fila[2], fila[3]
-            self.__carreras.append(Carrera(codigo, nombre, duracion, tipo))
-
+        self.__carreras=[]
+        for carrera in lista:
+            self.__carreras.append(Carrera(int(carrera[1]),carrera[2],carrera[3],carrera[4],carrera[5]))
+   
     def getCodigo(self):
         return self.__codigo
 

@@ -7,31 +7,32 @@ class ManejaFacultades:
     def __init__(self):
         self.__listaFacultades = []
 
-    def agregarFacultad(self, unaFacultad):
-        self.__listaFacultades.append(unaFacultad)
-
     def testFacultades(self):
-        archivo = open('Facultades.csv')
+        archivo = open('Ejercicio1\Facultades.csv')
         reader = csv.reader(archivo, delimiter = ';')
-        band = True
+        bandera = True
         for fila in reader:
-            if band == True:
+            if bandera==True:
                 facu = fila
-                band = False
+                bandera = False
                 listaCarrera = []
+            elif fila[0] == facu[0]:
+                listaCarrera.append(fila)
             else:
-                if fila[0] == facu[0]:
-                    listaCarrera.append(fila)
-                else: 
-                    nueva = Facultad(fila[0], fila[1], fila[2], fila[3], fila[4], listaCarrera)
-                    self.agregarFacultad(nueva)
-                    facu = fila
-                    listaCarrera = []
+                nuevaFacultad = Facultad(facu[0],facu[1],facu[2],facu[3],facu[4],listaCarrera)
+                self.__listaFacultades.append(nuevaFacultad)
+                facu = fila
+                listaCarrera=[]
+        nuevaFacultad = Facultad(facu[0],facu[1],facu[2],facu[3],facu[4],listaCarrera)
+        self.__listaFacultades.append(nuevaFacultad)
+        archivo.close()
         
-    def buscarFacultad(self, cod):
+    def buscarFacultad(self):
+        facu = None
         band = False
         i = 0
-        facu = None
+        print('Ingresar codigo de facultad')
+        cod = int(input('Codigo'))
         while i <  len(self.__listaFacultades) and not band:
             if int(self.__listaFacultades[i].getCodigo()) == cod:
                 band = True
@@ -40,21 +41,35 @@ class ManejaFacultades:
 
         if band == True:
             facu = self.__listaFacultades[i]
+        
         return facu
 
-    def listarDatosCarreras(self, cod):
-        print('Ingresar codigo de facultad')
-        cod = int(input('Codigo'))
+    def listarCarrerasFacultad(self):
         facu = self.buscarFacultad()
         if facu != None:
             print(f'{facu.getNombre()}')
+            print('\t---------------Carreras---------------')
+            print('{:<50}{:<25}'.format('Nombre Carrera','Duracion'))
             for carrera in facu.getCarreras():
-                print(f'{carrera.getNombre()}')
-                print(f'{carrera.getDuracion()}')
+                print('{:<50}{:<20}'.format(carrera.getNombre(), carrera.getDuracion()))
         else: 
             print('no se encontro')
 
-    def buscarCarrera(self):
-        print('Ingrese nombre de la carrera')
-        str = input('Nombre:')
+    def mostrarDatosCarrera(self):
+        print('Ingresar nombre de la carerra')
+        nombre = input('Nombre: ')
+        i = 0
+        bandera = False
+        carreras = None
+        while i < len(self.__listaFacultades) and not bandera:
+            carreras = self.__listaFacultades[i].getCarreras()
+            j = 0
+            band=False
+            while j < len(carreras) and not band:
+                if carreras[j].getNombre() == nombre:
+                    print(f'Codigo: {self.__listaFacultades[i].getCodigo()},{carreras[j].getCodigo()}; Facultad: {self.__listaFacultades[i].getNombre()}; Localidad: {self.__listaFacultades[i].getLocalidad()}')
+                    bandera = True
+                    band = True
+                else: j += 1
+            i+=1
         

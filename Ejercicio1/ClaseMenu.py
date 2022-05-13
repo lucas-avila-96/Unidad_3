@@ -13,7 +13,7 @@ class Menu:
             func()
     
     def opcion1(self, manejador):
-        manejador.listarDatosCarreras()
+        manejador.listarCarrerasFacultad()
         
     def opcion2(self, manejador):
-        manejador.consultarDatosFacultad()
+        manejador.mostrarDatosCarrera()
