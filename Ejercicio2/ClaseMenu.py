@@ -19,16 +19,18 @@ class Menu:
         tamaño = input('Tamaño: ')
         unRamo = Ramo(tamaño)
         print('ingrese nombre de la flor para agregar o fin para finalizar')
-        nombre = input('Nombre')
+        nombre = input('Nombre: ')
         while nombre != 'fin':
             unaFlor = manejadorFlores.buscarFlor(nombre)
             if unaFlor != None:
                 unRamo.agregarFlor(unaFlor)
-            print('ingrese nombre de la flor para agregar o fin para finalizar')
-            nombre = input('Nombre')
+                print('Flor agregada con exito')
+            else:
+                print('Flor no encontrada. Reintente')
+            nombre = input('Nombre: ')
         manejadorRamos.agregarVenta(unRamo)
 
-    def opcion2(self):
+    def opcion2(self, manejadorFlores, manejadorRamos):
         pass
-    def opcion3(self):
+    def opcion3(self, manejadorFlores, manejadorRamos):
         pass

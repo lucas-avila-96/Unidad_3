@@ -1,7 +1,4 @@
-from unicodedata import numeric
-
-
-class Flores:
+class Flor:
     __numero = 0
     __nombre = ''
     __color = ''
@@ -12,3 +9,7 @@ class Flores:
         self.__nombre = nombre
         self.__color = color
         self.__descripcion = descripcion
+
+
+    def getNombre(self):
+        return self.__nombre

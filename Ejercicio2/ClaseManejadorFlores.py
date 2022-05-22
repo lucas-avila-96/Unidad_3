@@ -1,6 +1,6 @@
 import numpy as np
 import csv
-from ClaseFlores import Flores
+from ClaseFlor import Flor
 
 class ManejadorFlores:
     __cantidad = 0
@@ -8,9 +8,10 @@ class ManejadorFlores:
     __incremento = 0
 
     def __init__(self, dimension = 0, incremento = 1):
-        self.__arregloFlores = np.empty(dimension, dtype = Flores)
+        self.__arregloFlores = np.empty(dimension, dtype = Flor)
         self.__cantidad = 0
         self.__dimension = dimension
+        self.__incremento = incremento
 
     def agregarFlores(self, unaFlor):
         if self.__cantidad == self.__dimension:
@@ -19,24 +20,24 @@ class ManejadorFlores:
         self.__arregloFlores[self.__cantidad] = unaFlor
         self.__cantidad += 1
         
-    def testFlores(self):
-        archivo = open('flores.csv')
-        reader = csv.reader(archivo, ';')
-        self.__dimension = len(reader)
+    def leerArchivo(self):
+        archivo = open('Ejercicio2\Libro1.csv')
+        reader = csv.reader(archivo, delimiter = ';')
+        #self.__dimension = len(archivo.readlines())
         for fila in reader:
             numero, nombre, color, descripcion = fila[0], fila[1], fila[2], fila[3]
-            unaFlor = Flores(numero, nombre, color, descripcion)
+            unaFlor = Flor(numero, nombre, color, descripcion)
             self.agregarFlores(unaFlor)
     
     def buscarFlor(self, nombre):
         unaFlor = None
         i = 0
         band = False
-        while i < self.__cantidad and not band:
+        print(self.__arregloFlores[0].getNombre())
+        while i < self.__arregloFlores.size and not band:
             if self.__arregloFlores[i].getNombre() == nombre:
                 unaFlor = self.__arregloFlores[i]
                 band = True
             else:
                 i += 1
-                
         return unaFlor
