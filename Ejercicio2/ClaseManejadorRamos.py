@@ -18,8 +18,13 @@ class ManejadorRamos:
                 else: 
                     diccionario[flor.getNombre()] += 1
         
-        for key in diccionario:
-            print (f'{key} : {diccionario[key]}')
+        l = list(diccionario.values())
+        l.sort(reverse=True)
+        top5 = l[0 : 5]
+
+        for clave, valor in diccionario.items(): 
+            if valor in top5:
+                print(f'{clave} : {valor}')
 
     def floresVendidasTipo(self, tipo):
         floresVendidas = []
