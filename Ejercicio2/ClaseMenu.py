@@ -31,6 +31,9 @@ class Menu:
         manejadorRamos.agregarVenta(unRamo)
 
     def opcion2(self, manejadorFlores, manejadorRamos):
-        pass
+        manejadorRamos.floresMasVendidas()
+
     def opcion3(self, manejadorFlores, manejadorRamos):
-        pass
+        tipo = input('Tipo de ramo: ')
+
+        manejadorRamos.floresVendidasTipo(tipo)

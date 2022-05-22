@@ -33,7 +33,6 @@ class ManejadorFlores:
         unaFlor = None
         i = 0
         band = False
-        print(self.__arregloFlores[0].getNombre())
         while i < self.__arregloFlores.size and not band:
             if self.__arregloFlores[i].getNombre() == nombre:
                 unaFlor = self.__arregloFlores[i]

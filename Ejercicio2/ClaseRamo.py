@@ -1,10 +1,15 @@
 class Ramo:
-    __tamaño = ''
-    __ramo = []
-    def __init__(self, tamaño):
-        self__tamaño = tamaño
-        self.__ramo = []
+    __tamano = ''
+    __flores = []
+    def __init__(self, tamano):
+        self.__tamano = tamano
+        self.__flores = []
 
     def agregarFlor(self, unaFlor):
-        self.__ramo.append(unaFlor)
-    
+        self.__flores.append(unaFlor)
+
+    def getFlores(self):
+        return self.__flores
+
+    def getTamano(self):
+        return self.__tamano

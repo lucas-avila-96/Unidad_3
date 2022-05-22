@@ -15,7 +15,7 @@ if __name__ == '__main__':
     print('3. Ingresar por teclado un tipo de ramo y mostrar las flores vendidas en ese tamaño')
     print('4. Finalizar')
     opcion = input('\nIngrese una opcion: ')
-    while opcion != 4:
+    while opcion != '4':
         menu.opcion(opcion, manejadorFlores, manejadorRamos)
         opcion = input('\nIngrese una opcion (4 para finalizar): ')
     print('\nSalió del Programa\n')
