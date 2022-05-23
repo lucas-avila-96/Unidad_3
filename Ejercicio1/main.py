@@ -1,4 +1,4 @@
-from ClaseMenu import Menu
+from Ejercicio3.ClaseMenu import Menu
 from ManejaFacultades import ManejaFacultades
 
 
