@@ -1,17 +1,25 @@
 from ClaseMenu import Menu
+from ClaseManejadorEquipo import ManejadorEquipo
+from ClaseManejadorJugador import ManejadorJugador
+from ClaseMenejadorContrato import ManejadorContrato
 
 if __name__ == '__main__':
     menu = Menu()
+    manejadorEquipo = ManejadorEquipo()
+    manejadorJugador = ManejadorJugador()
+    manejadorContrato = ManejadorContrato()
 
+    manejadorEquipo.leerArchivo()
     print('ingrese una opcion')
-    print('1. Registrar un ramo vendido')
-    print('2. Mostrar el nombre de las 5 flores  más pedidas en un ramo')
-    print('3. Ingresar por teclado un tipo de ramo y mostrar las flores vendidas en ese tamaño')
-    print('4. Finalizar')
-    opcion = input('\nIngrese una opcion: ')
-    while opcion != '4':
-        menu.opcion(opcion, manejadorFlores, manejadorRamos)
-        opcion = input('\nIngrese una opcion (4 para finalizar): ')
-    print('\nSalió del Programa\n')
+    print('1. Crear un contrato para un jugador en un equipo')
+    print('2. Consultar jugadores Contratados')
+    print('3. Consultar Contratos')
+    print('4. Obtener importe de contratos')
+    print('5. Guardar Contratos')
+    print('6. Salir')
 
-    
+    opcion = input('\nIngrese una opcion: ')
+    while opcion != '6':
+        menu.opcion(opcion, manejadorEquipo, manejadorJugador, manejadorContrato)
+        opcion = input('\nIngrese una opcion (6 para finalizar): ')
+    print('\nSalió del Programa\n')

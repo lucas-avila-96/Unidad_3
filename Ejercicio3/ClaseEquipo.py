@@ -1,12 +1,27 @@
-
-
-from mailbox import NoSuchMailboxError
-
+from ClaseContrato import Contrato
 
 class Equipo:
     __nombre = ''
     __ciudad = ''
+    __listaContratos = []
 
     def __init__(self, nombre, ciudad):
         self.__nombre = nombre
         self.__ciudad = ciudad
+        self.__listaContratos = []
+
+    def agregarContrato(self, contrato):
+        self.__listaContratos.append(contrato)
+
+    def consultarContratos(self):
+        if len(self.__listaContratos) >= 1:
+            for contrato in self.__listaContratos:
+                print(contrato)
+        else:
+            print('No existen contratos')
+
+    def getNombre(self):
+        return self.__nombre
+        
+    def __str__(self):
+        return (f'{self.__nombre}')
