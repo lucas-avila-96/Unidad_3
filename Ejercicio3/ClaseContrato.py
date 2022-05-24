@@ -1,8 +1,9 @@
+from datetime import date
 
 class Contrato:
-    __fechaInicio = ''
-    __fechaFin = ''
-    __pagoMensual = 0.0
+    __fechaInicio = None
+    __fechaFin = None
+    __pagoMensual = 0
     __jugador = None
     __equipo = None
 
@@ -14,8 +15,8 @@ class Contrato:
         self.__equipo = unEquipo
 
     def __str__(self) -> str:
-        cadena = 'Fecha de inicio:'+ self.__fechaInicio+'\n'
-        cadena += 'Fecha de fin: '+ self.__fechaFin +'\n' 
+        cadena = 'Fecha de inicio:'+ str(self.__fechaInicio)+'\n'
+        cadena += 'Fecha de fin: '+ str(self.__fechaFin) +'\n' 
         cadena += 'Pago mensual: '+ str(self.__pagoMensual)+'\n'
         cadena += str(self.__jugador)+'\n'
         cadena += str(self.__equipo)
@@ -24,5 +25,17 @@ class Contrato:
     def getFechaFin(self):
         return self.__fechaFin
 
+    def getFechaInicio(self):
+        return self.__fechaInicio
+
     def getEquipo(self):
         return self.__equipo
+    
+    def getDiferenciaMeses(self):
+        difmeses = None
+        difdias = self.__fechaFin - self.__fechaInicio
+        difmeses = int(difdias.days / 30)
+        return difmeses
+
+    def getPagoMensual(self):
+        return self.__pagoMensual

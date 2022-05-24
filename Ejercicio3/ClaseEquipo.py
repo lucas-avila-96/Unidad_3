@@ -20,6 +20,12 @@ class Equipo:
         else:
             print('No existen contratos')
 
+    def obtenerImporteTotal(self):
+        total = 0
+        for contrato in self.__listaContratos:
+            total += contrato.getPagoMensual() * contrato.getDiferenciaMeses()
+        print(f'Importe total de los contratos{total}')
+
     def getNombre(self):
         return self.__nombre
         
