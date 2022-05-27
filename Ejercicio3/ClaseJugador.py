@@ -13,7 +13,7 @@ class Jugador:
         self.__ciudad = ciudad
         self.__pais = pais
         self.__fechaNac = fechaNac
-        self__listaContratos = []
+        self.__listaContratos = []
 
     def __str__(self):
         return (f'{self.__nombre}')
@@ -29,3 +29,5 @@ class Jugador:
             for contrato in self.__listaContratos:
                 print (str(contrato.getEquipo()))
                 print(str(contrato.getFechaFin()))
+        else: 
+            print('No tiene contratos')

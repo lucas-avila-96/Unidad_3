@@ -30,6 +30,9 @@ class Contrato:
 
     def getEquipo(self):
         return self.__equipo
+        
+    def getJugador(self):
+        return self.__jugador
     
     def getDiferenciaMeses(self):
         difmeses = None

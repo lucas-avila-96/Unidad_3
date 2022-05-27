@@ -26,8 +26,6 @@ class ManejadorEquipo:
         self.agregarEquipo(unEquipo)
         self.agregarEquipo(otroEquipo)
 
-
-
     def buscarEquipoPorId(self):
         unEquipo = None
         print('Ingrese el identificador')
@@ -48,3 +46,5 @@ class ManejadorEquipo:
                 unEquipo = self.__arregloEquipos[i]
                 band = True
         return unEquipo
+
+    

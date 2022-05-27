@@ -1,5 +1,5 @@
 from ClaseContrato import Contrato
-
+from datetime import date
 class Equipo:
     __nombre = ''
     __ciudad = ''
@@ -31,3 +31,11 @@ class Equipo:
         
     def __str__(self):
         return (f'{self.__nombre}')
+
+    def listarContratos(self):
+        for contrato in self.__listaContratos:
+            fechaActual = date.today()
+            fechaFin = contrato.getFechaFin()
+
+            if int((fechaFin - fechaActual) / 30) < 6:
+                print(contrato)

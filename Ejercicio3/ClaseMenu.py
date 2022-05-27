@@ -50,7 +50,7 @@ class Menu:
         unEquipo = mEquipo.buscarEquipoPorNombre()
         unEquipo.obtenerImporteTotal()
 
-    def opcion5(self):
-        pass
+    def opcion5(self, mEquipo, mJugador, mContrato):
+        mContrato.guardarArchivo()
 
     
