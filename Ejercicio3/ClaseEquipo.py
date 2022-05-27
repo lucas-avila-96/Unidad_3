@@ -36,6 +36,6 @@ class Equipo:
         for contrato in self.__listaContratos:
             fechaActual = date.today()
             fechaFin = contrato.getFechaFin()
-
-            if int((fechaFin - fechaActual) / 30) < 6:
+            dif = fechaFin - fechaActual
+            if int(dif.days / 30) < 6:
                 print(contrato)
