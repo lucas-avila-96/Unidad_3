@@ -6,7 +6,7 @@ class IClase(Interface):
     def insertarElemento(elemento, posicion):
         pass
 
-    def insertarElemento(elemento):
+    def agregarElemento(elemento):
         pass
 
     def mostrarElemento(posicion):
