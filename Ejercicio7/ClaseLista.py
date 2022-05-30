@@ -12,6 +12,18 @@ class Lista:
     def __init__(self):
         self.__comienzo = None
         self.__actual = None
+
+    def toJSON(self):
+        pers = []
+        aux= self.__comienzo
+        while aux != None:
+            pers.append(aux.getDato().toJson())
+            aux= aux.getSiguiente()
+        d = dict(
+        __class__ = self.__class__.__name__,
+            personas = pers
+        )
+        return d
     
     def __iter__(self):
         return self
@@ -75,3 +87,6 @@ class Lista:
         while aux != None:
             print(aux.getDato())
             aux=aux.getSiguiente()
+
+
+    
