@@ -15,10 +15,18 @@ class Menu:
             func()
     
     def opcion1(self, manejadorCalefactor):
-        pass
+        print('Ingresar costo m^3')
+        costo = input('Costo: ')
+        print('Ingresar cantidad estimada en m^3')
+        cantidad = input('Cantidad: ')
+        manejadorCalefactor.menorCosto(costo, cantidad)
 
     def opcion2(self, manejadorCalefactor):
-        pass
+        print('Ingrese costo de el kilowatt/h')
+        costo = input('Costo: ')
+        print('Ingresar cantidad')
+        cantidad = input('Cantidad: ')
+        manejadorCalefactor.menorCosto(costo, cantidad)
 
     def opcion3(self, manejadorCalefactor):
         pass

@@ -8,3 +8,6 @@ class Electrico(Calefactor):
         super().__init__(marca, modelo)
         __potencia = potencia
     
+
+    def calcularCosto(self, costokw, cantidadh):
+        return self.__potencia / 1000 * cantidadh * costokw

@@ -1,9 +1,9 @@
 class Nodo:
-    __aparato = None
+    __item = None
     __siguiente = None
 
-    def __init__(self, aparato):
-        self.__aparato = aparato
+    def __init__(self, item):
+        self.__item = item
         self.__siguiente = None
 
     def setSiguiente(self, siguiente):
@@ -13,4 +13,4 @@ class Nodo:
         return self.__siguiente
 
     def getDato(self):
-        return self.__aparato
+        return self.__item

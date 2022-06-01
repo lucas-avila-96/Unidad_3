@@ -10,4 +10,5 @@ class Gas(Calefactor):
         self.__matricula = matricula
         self.__calorias = calorias
 
-    
+    def calcularCosto(self, costom3, cantidadm3):
+        return self.__calorias / 1000 * cantidadm3 * costom3

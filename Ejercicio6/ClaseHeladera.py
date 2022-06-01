@@ -11,3 +11,13 @@ class Lavarropa(Aparato):
         self.__freezer = freezer
         self.__ciclica = ciclica
 
+    def toJSON(self):
+        d = dict(
+            __class__= self.__class__.__name__,
+            __atributos__= dict(
+                capacidad =self.__capacidadLts,
+                freezer = self.__freezer,
+                ciclica = self.__ciclica
+            )
+        )
+        return d

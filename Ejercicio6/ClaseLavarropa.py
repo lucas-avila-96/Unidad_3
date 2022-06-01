@@ -2,15 +2,27 @@ from ClaseAparato import Aparato
 
 class Lavarropa(Aparato):
     __capacidadLavado = 0
-    __velocidadDeCentrifugado = 0
-    __cantidadDeProgramas = ''
-    __tipoDeCarga = ''
+    __velocidadCentrifugado = 0
+    __cantidadProgramas = ''
+    __tipoCarga = ''
 
 
     def __init__(self, marca, modelo, color, pais, precio, capacidad, velocidad, cantProgramas, carga):
         super().__init__(marca, modelo, color, pais, precio)
         self.__capacidadLavado = capacidad
-        self.__velocidadDeCentrifugado = velocidad
-        self.__cantidadDeProgramas = cantProgramas
-        self.__tipoDeCarga = carga
+        self.__velocidadCentrifugado = velocidad
+        self.__cantidadProgramas = cantProgramas
+        self.__tipoCarga = carga
 
+
+    def toJSON(self):
+        d = dict(
+            __class__= self.__class__.__name__,
+            __atributos__= dict(
+                capacidadLavado = self.__capacidadLavado,
+                velocidadCentrifugador = self.__velocidadCentrifugado,
+                cantidadProgramas = self.__cantidadProgramas,
+                tipoCarga = self.__tipoCarga,
+            )
+        )
+        return d

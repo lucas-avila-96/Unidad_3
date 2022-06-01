@@ -6,4 +6,5 @@ class Calefactor:
         self.__marca = marca
         self.__modelo = modelo
 
-    
+    def calcularMenorCosto(self):
+        pass

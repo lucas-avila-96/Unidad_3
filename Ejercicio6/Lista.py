@@ -2,6 +2,7 @@ from zope.interface import implementer
 import Interfaz
 import Nodo
 
+
 @implementer(Interfaz)
 class Lista:
     __comienzo = None
@@ -12,18 +13,6 @@ class Lista:
     def __init__(self):
         self.__comienzo = None
         self.__actual = None
-
-    def toJSON(self):
-        pers = []
-        aux= self.__comienzo
-        while aux != None:
-            pers.append(aux.getDato().toJson())
-            aux= aux.getSiguiente()
-        d = dict(
-        __class__ = self.__class__.__name__,
-            personas = pers
-        )
-        return d
     
     def __iter__(self):
         return self
@@ -39,13 +28,6 @@ class Lista:
             self.__actual = self.__actual.getSiguiente()
             return dato
 
-    def agregarElemento(self, item):
-        nodo = Nodo(item)
-        nodo.setSiguiente(self.__comienzo)
-        self.__comienzo = nodo
-        self.__actual = nodo
-        self.__tope += 1
-
     def size(self):
         cont = 0
         actual = self.__comienzo
@@ -53,6 +35,13 @@ class Lista:
             cont += 1
             actual = actual.getSiguiente()
         return cont
+
+    def agregarElemento(self, item):
+        nodo = Nodo(item)
+        nodo.setSiguiente(self.__comienzo)
+        self.__comienzo = nodo
+        self.__actual = nodo
+        self.__tope += 1
 
     def insertarElemento(self, pos, item):
         if pos > self.size() - 1:
@@ -75,6 +64,12 @@ class Lista:
             anterior.setSiguiente(nuevo)
             nuevo.setSiguiente(actual)
         
+    def insertarElemento(self, item):
+        nuevo = Nodo(item)
+        aux = self.__comienzo
+        while aux.getSiguiente() != None:
+            aux = aux.getSiguiente()
+        aux.setSiguiente(nuevo)
 
     def mostrarElemento(self, pos):
         aux = self.__comienzo
@@ -84,6 +79,3 @@ class Lista:
             i += 1
         if aux is not None:
             print(aux.getDato())
-
-
-    
