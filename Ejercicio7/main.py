@@ -1,4 +1,4 @@
-from ClaseLista import Lista
+from Lista import Lista
 from ClaseObjectEncoder import ObjectEncoder
 
 

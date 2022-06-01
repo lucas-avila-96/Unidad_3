@@ -1,6 +1,6 @@
 from ClaseAparato import Aparato
 
-class Lavarropa(Aparato):
+class Heladera(Aparato):
     __capacidadLts = 0 
     __freezer = False
     __ciclica = False

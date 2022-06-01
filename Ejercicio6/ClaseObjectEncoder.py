@@ -21,8 +21,8 @@ class ObjectEncoder(object):
                     lista.agregarElemento(unAparato)
                 return lista
 
-    def leerJSONArchivo(self):
-        with Path('aparatoselectronicos.json').open(encoding="UTF-8") as fuente:
+    def leerJSONArchivo(self, archivo):
+        with Path(archivo).open(encoding="UTF-8") as fuente:
             diccionario = json.load(fuente)
             fuente.close()
             return diccionario

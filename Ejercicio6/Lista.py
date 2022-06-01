@@ -45,15 +45,14 @@ class Lista:
 
     def insertarElemento(self, pos, item):
         if pos > self.size() - 1:
-            print('Error')
+            raise IndexError('posicion no encontrada')
         actual = self.__comienzo
         anterior = None
-        nuevo = Nodo(item)
         i = 0
         if pos == 0:
-            nuevo.setSiguiente(self.__comienzo)
-            self.__comienzo = nuevo
+            self.agregarElemento(item)
         else:
+            nuevo = Nodo(item)
             actual = self.__comienzo
             anterior = None
             i = 0
