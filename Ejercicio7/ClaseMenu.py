@@ -1,4 +1,4 @@
-from ClaseHeladera import Heladera
+from ClasePersonal import Personal
 
 class Menu:
     __switcher=None
@@ -10,36 +10,41 @@ class Menu:
                             '5':self.opcion5,
                             '6':self.opcion6,
                             '7':self.opcion7,
-
+                            '8':self.opcion7,
                             }
 
-    def opcion(self,op, listaAparatos):
+    def opcion(self,op, listaPersonal):
         func=self.__switcher.get(op, lambda: print("Opción no válida"))
         if op == '1' or op == '2' or op == '3':
-            func(listaAparatos)
+            func(listaPersonal)
         else:
             func()
-    
-    def opcion1(self, listaAparatos):
-        elemento = Heladera('philips', 'mod1', 'blanco', 'arg', '99999', '200L', True, True)
-        pos = input('Posicion: ')
-        listaAparatos.insertarElemento(elemento, pos)
-
-    def opcion2(self, listaAparatos):
         
-        pass 
+    def opcion1(self,op, listaPersonal):
+        
+        elemento = Personal()
+        listaPersonal.agregarElemento(elemento)
+
+    def opcion2(self,op, listaPersonal):
+        pass
+
+    def opcion3(self,op, listaPersonal):
+        pass
+
+    def opcion4(self,op, listaPersonal):
+        pass
+
+    def opcion5(self,op, listaPersonal):
+        pass
+
+    def opcion6(self,op, listaPersonal):
+        pass
+
+    def opcion7(self,op, listaPersonal):
+        pass
+
+    def opcion8(self,op, listaPersonal):
+        pass
+
+
     
-    def opcion3(self, listaAparatos):
-        pass
-
-    def opcion4(self, listaAparatos):
-        pass
-
-    def opcion5(self, listaAparatos):
-        pass
-
-    def opcion6(self, listaAparatos):
-        pass
-
-    def opcion7(self, listaAparatos):
-        pass

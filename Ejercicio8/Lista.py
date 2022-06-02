@@ -1,7 +1,7 @@
 from zope.interface import implementer
 import Interfaz
 import Nodo
-from ClaseLavarropa import Lavarropa
+
 
 @implementer(Interfaz)
 class Lista:
@@ -45,7 +45,7 @@ class Lista:
 
     def insertarElemento(self, pos, item):
         if pos > self.size() - 1:
-            raise IndexError
+            raise IndexError('posicion no encontrada')
         actual = self.__comienzo
         anterior = None
         i = 0
@@ -62,6 +62,13 @@ class Lista:
                 actual = actual.getSiguiente()
             anterior.setSiguiente(nuevo)
             nuevo.setSiguiente(actual)
+        
+    def insertarElemento(self, item):
+        nuevo = Nodo(item)
+        aux = self.__comienzo
+        while aux.getSiguiente() != None:
+            aux = aux.getSiguiente()
+        aux.setSiguiente(nuevo)
 
     def mostrarElemento(self, pos):
         aux = self.__comienzo
@@ -71,46 +78,4 @@ class Lista:
             i += 1
         if aux is not None:
             print(aux.getDato())
-
-    def consultarTipoAparato(self, pos):
-        aux = self.__comienzo
-        ap = None
-        i = 0
-        while aux != None and i < pos:
-            ap = aux.getDato()
-            aux = aux.getSiguiente()
-            i += 1
-        print(f'El aparato en la posicion {pos} es {ap}')
-
-    def calcularCantidadPorMarca(self, marca):
-        aux = self.__comienzo
-        c = 0
-        while aux != None:
-            ap = aux.getDato()
-            if ap.getMarca() == marca:
-                c += 1
-            aux = aux.getSiguiente()
-            i += 1
-        return c
-    
-    def obtenerLavarropasCargaSuperior(self):
-        aux = self.__comienzo
-        lista = []
-        while aux != None:
-            ap = aux.getDato()
-            if isinstance(ap, Lavarropa):
-                lista.append(ap)
-            aux = aux.getSiguiente()
-            i += 1
-        return lista
-
-    def mostrarDatos(self):
-        aux = self.__comienzo
-        while aux != None:
-            ap = aux.getDato()
-            print(f'Marca: {ap.getMarca()}')
-            print(f'Pais de fabricacion: {ap.getPaisDeFabricaicon()}')
-            print(f'Precio: {ap.getPrecio()}')
-            aux = aux.getSiguiente()
-            i += 1
     

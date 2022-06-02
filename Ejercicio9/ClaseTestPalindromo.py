@@ -1,11 +1,11 @@
 import unittest
 
-from ClasePalindromo import Palindormo
+from ClasePalindromo import Palindromo
 
 class TestPalindromo(unittest.TestCase):
     __palindromo = None
     def setUp(self):
-        self.__palindromo = Palindormo('MENEM')
+        self.__palindromo = Palindromo('ANA')
 
     def test_esPalindromoPar(self):
         self.assertTrue(self.__palindromo.esPalindromo())
@@ -15,3 +15,4 @@ class TestPalindromo(unittest.TestCase):
 
     def test_esPalindromoImpar(self):
         self.assertTrue(self.__palindromo.esPalindromo())
+

@@ -1,6 +1,6 @@
 
 import unittest
-from ClasePalindromo import Palindormo
+from ClasePalindromo import Palindromo
 from ClaseTestPalindromo import TestPalindromo
 
 if __name__ == '__main__':
