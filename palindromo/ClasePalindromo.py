@@ -1,4 +1,4 @@
-class Palindormo:
+class Palindromo:
     __palabra = None
 
     def __init__(self, palabra):
