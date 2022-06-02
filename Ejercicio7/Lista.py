@@ -1,4 +1,6 @@
+from numpy import isin
 from zope.interface import implementer
+from Ejercicio7.ClaseDocenteInvestigador import DocenteInvestigador
 import Interfaz
 import Nodo
 
@@ -62,13 +64,6 @@ class Lista:
                 actual = actual.getSiguiente()
             anterior.setSiguiente(nuevo)
             nuevo.setSiguiente(actual)
-        
-    def insertarElemento(self, item):
-        nuevo = Nodo(item)
-        aux = self.__comienzo
-        while aux.getSiguiente() != None:
-            aux = aux.getSiguiente()
-        aux.setSiguiente(nuevo)
 
     def mostrarElemento(self, pos):
         aux = self.__comienzo
@@ -78,4 +73,30 @@ class Lista:
             i += 1
         if aux is not None:
             print(aux.getDato())
+
+    def consultarTipoPersonal(self, pos):
+        aux = self.__comienzo
+        pers = None
+        i = 0
+        while aux != None and i < pos:
+            pers = aux.getDato()
+            aux = aux.getSiguiente()
+            i += 1
+        print(f'La persona en la posicion {pos} es {type(pers).__name__}')
     
+    def listarDocentesInvestigadores(self, carrera):
+        aux = self.__comienzo
+        lista = []
+        band = True
+        while aux != None:
+            if isinstance(aux, DocenteInvestigador):
+                lista.append(aux)
+                i += 1
+        while band:
+            band = False
+            for i in range(len(lista) - 1):
+                if lista[i].getApellido() < lista[i + 1].getApellido():
+                    lista[i], lista[i + 1] = lista[i + 1], lista[i]
+                    band = True
+        return lista
+

@@ -14,6 +14,13 @@ class Lavarropa(Aparato):
         self.__cantidadProgramas = cantProgramas
         self.__tipoCarga = carga
 
+    def getImporteVenta(self):
+        importe = self.getPrecioBase()
+        if self.__capacidadLavado < 5:
+            importe += importe * 1/100
+        else:
+            importe += importe * 3/100
+        return importe
 
     def toJSON(self):
         d = dict(

@@ -16,15 +16,5 @@ class Personal:
         self.__sueldoBasico = sueldoBaisco
         self.__antiguedad = antiguedad
 
-    def toJSON(self):
-        d = dict(
-            __class__= self.__class__.__name__,
-            __atributos__= dict(
-                cuil = self.__cuil,
-                apellido = self.__apellido,
-                nombre = self.__nombre,
-                sueldoBasico = self.__sueldoBasico,
-                antiguiedad = self.__antiguedad,
-            )
-        )
-        return d
+    def getApellido(self):
+        return self.__apellido

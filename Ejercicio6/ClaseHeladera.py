@@ -1,3 +1,4 @@
+
 from ClaseAparato import Aparato
 
 class Heladera(Aparato):
@@ -10,6 +11,17 @@ class Heladera(Aparato):
         self.__capacidadLts = capacidad
         self.__freezer = freezer
         self.__ciclica = ciclica
+    
+    def getImporteVenta(self):
+        importe = self.getPrecioBase()
+        if self.__freezer is True:
+            importe += importe * 5/100
+        if self.__freezer == False:
+            importe += importe * 1/100
+        if self.__ciclica == True:
+            importe += importe * 10/100
+
+        return importe
 
     def toJSON(self):
         d = dict(

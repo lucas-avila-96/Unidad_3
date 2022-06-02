@@ -14,7 +14,6 @@ class Menu:
                             '5':self.opcion5,
                             '6':self.opcion6,
                             '7':self.opcion7,
-
                             }
 
     def opcion(self,op, listaAparatos):
@@ -36,7 +35,7 @@ class Menu:
         elemento = None
         tipo = input('Tipo: ')
         tipo.lower()
-        if tipo == 'heladera':
+        if tipo == type(Heladera).__name__.lower():
             marca = input('Marca: ')
             modelo = input('Modelo: ')
             color = input('Color: ')
@@ -46,7 +45,7 @@ class Menu:
             freezer = input('Frezzer: ')
             ciclica = input('ciclica: ')
             elemento = Heladera(marca, modelo, color, pais, precio, capacidad, freezer, ciclica)
-        elif tipo == 'lavarropa':
+        elif tipo == type(Lavarropa).__name__.lower():
             marca = input('Marca: ')
             modelo = input('Modelo: ')
             color = input('Color: ')
@@ -57,7 +56,7 @@ class Menu:
             cantProgramas = input('Cantidad de programas: ')
             carga = input('Carga: ')
             elemento = Lavarropa(marca, modelo, color, pais, precio, capacidad, velocidad, cantProgramas, carga)
-        elif tipo == 'televisor':
+        elif tipo == type(Televisor).__name__.lower():
             marca = input('Marca: ')
             modelo = input('Modelo: ')
             color = input('Color: ')
@@ -68,7 +67,6 @@ class Menu:
             definicion = input('Definicon: ')
             internet = input('Internet')
             elemento = Televisor(marca, modelo, color, pais, precio, pantalla, pulgadas, definicion, internet)
-            
         listaAparatos.agregarElemento(elemento)
     
     def opcion3(self, listaAparatos):

@@ -13,6 +13,19 @@ class Televisor(Aparato):
         self.__tipoDedfinicion = definicion
         self.__conexionInternet = internet
 
+    def getImporteVenta(self):
+        '''
+        el 1% si el tipo de definición es SD, 2% si el tipo de definición es HD, 3% si el tipo de definición es FULL HD, mas 10% si tiene conexión a internet.
+        '''
+        importe = self.getPrecioBase()
+        if self.__tipoDedfinicion == 'SD':
+            importe += importe * 1/100
+        if self.__tipoDedfinicion == 'HD':
+            importe += importe * 2/100
+        if self.__tipoDedfinicion == 'FULL HD':
+            importe += importe * 3/100
+        return importe
+
     def toJSON(self):
         d = dict(
             __class__= self.__class__.__name__,

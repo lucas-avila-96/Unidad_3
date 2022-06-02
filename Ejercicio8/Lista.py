@@ -63,12 +63,6 @@ class Lista:
             anterior.setSiguiente(nuevo)
             nuevo.setSiguiente(actual)
         
-    def insertarElemento(self, item):
-        nuevo = Nodo(item)
-        aux = self.__comienzo
-        while aux.getSiguiente() != None:
-            aux = aux.getSiguiente()
-        aux.setSiguiente(nuevo)
 
     def mostrarElemento(self, pos):
         aux = self.__comienzo
@@ -78,4 +72,18 @@ class Lista:
             i += 1
         if aux is not None:
             print(aux.getDato())
-    
+
+    def gastosSueldoPorEmpleado ( dni):
+        pass
+
+    def modificarBasico(dni, nuevoBasico):
+        pass
+
+    def modificarPorcentajeporcargo(dni, nuevoPorcentaje):
+        pass
+
+    def modificarPorcentajeporcategoría(dni, nuevoPorcentaje):
+        pass
+
+    def modificarImporteExtra(dni, nuevoImporteExtra):
+        pass

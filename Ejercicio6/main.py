@@ -1,6 +1,7 @@
 from Lista import Lista
 from ClaseObjectEncoder import ObjectEncoder
 from ClaseMenu import Menu
+from ClaseHeladera import Heladera
 
 
 if __name__ == '__main__':
@@ -22,4 +23,3 @@ if __name__ == '__main__':
 
     op = input('Opcion: ')
     menu.opcion(op, listaAparatos)
-

@@ -18,7 +18,7 @@ class ObjectEncoder(object):
                     class_ = eval(class_name)
                     atributos = dPersonas['__atributos__']
                     unaPersona = class_(**atributos)
-                    lista.agregarItem(unaPersona)
+                    lista.agregarElemento(unaPersona)
                 return lista
 
     def leerJSONArchivo(self,archivo):

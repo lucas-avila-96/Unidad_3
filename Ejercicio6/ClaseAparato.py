@@ -25,7 +25,7 @@ class Aparato:
     def getPaisDeFabricacion(self):
         return self.__paisDeFabricacion
 
-    def getPrecio(self):
+    def getPrecioBase(self):
         return self.__precio
 
 

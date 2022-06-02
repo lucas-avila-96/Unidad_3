@@ -80,7 +80,7 @@ class Lista:
             ap = aux.getDato()
             aux = aux.getSiguiente()
             i += 1
-        print(f'El aparato en la posicion {pos} es {ap}')
+        print(f'El aparato en la posicion {pos} es {type(ap).__name__}')
 
     def calcularCantidadPorMarca(self, marca):
         aux = self.__comienzo
