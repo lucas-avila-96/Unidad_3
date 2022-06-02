@@ -19,6 +19,11 @@ class Lavarropa(Aparato):
         d = dict(
             __class__= self.__class__.__name__,
             __atributos__= dict(
+                marca = self.getMarca(),
+                modelo = self.getModelo(), 
+                color = self.getColor(),
+                pais = self.getPaisDeFabricacion(),
+                precio = self.getPrecio(),
                 capacidadLavado = self.__capacidadLavado,
                 velocidadCentrifugador = self.__velocidadCentrifugado,
                 cantidadProgramas = self.__cantidadProgramas,

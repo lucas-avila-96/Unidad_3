@@ -13,20 +13,20 @@ class Aparato:
         self.__paisDeFabricacion = pais
         self.__precio = precio
 
-    def toJSON(self):
-        d = dict(
-            __class__= self.__class__.__name__,
-            __atributos__= dict(
-                marca = self.__marca,
-                modelo = self.__modelo,
-                color = self.__color,
-                pais = self.__paisDeFabricacion,
-                precio = self.__precio,
-            )
-        )
-        return d
+    def getMarca(self):
+        return self.__marca
 
+    def getModelo(self):
+        return self.__modelo
+    
+    def getColor(self):
+        return self.__color
+    
+    def getPaisDeFabricacion(self):
+        return self.__paisDeFabricacion
 
+    def getPrecio(self):
+        return self.__precio
 
 
 

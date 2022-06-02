@@ -62,13 +62,6 @@ class Lista:
                 actual = actual.getSiguiente()
             anterior.setSiguiente(nuevo)
             nuevo.setSiguiente(actual)
-        
-    def insertarElemento(self, item):
-        nuevo = Nodo(item)
-        aux = self.__comienzo
-        while aux.getSiguiente() != None:
-            aux = aux.getSiguiente()
-        aux.setSiguiente(nuevo)
 
     def mostrarElemento(self, pos):
         aux = self.__comienzo

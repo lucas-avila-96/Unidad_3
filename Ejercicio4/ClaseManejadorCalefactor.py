@@ -1,3 +1,4 @@
+
 import numpy as np
 import csv
 from ClaseCalefactor import Calefactor
@@ -18,7 +19,7 @@ class ManejadorCalefactor:
         if self.__cantidad == self.__dimension:
             self.__dimension += self.__incremento
             self.__arregloCalefactor.resize(self.__dimension)
-        self.__arregloCalefactor[self.__cantidad]=unCalefactor
+        self.__arregloCalefactor[self.__cantidad] = unCalefactor
         self.__cantidad += 1
 
     def leerArchivo(self):
@@ -38,21 +39,35 @@ class ManejadorCalefactor:
             self.agregarCalefactor(unCalefactor)
         archivo.close()
     
-
     def buscarMenorCostoGas(self, costom3, cantidadm3):
-        calefMenorCosto = None
+        min = 9999999
+        aux = None
         for i in range(self.__arregloCalefactor.size):
             if isinstance(self.__arregloCalefactor[i], Gas):
-                self.__arregloCalefactor[i].calcularCosto(costom3, cantidadm3)
+                x = self.__arregloCalefactor[i].calcularConsumo(costom3, cantidadm3)
+                if x < min:
+                    min = x
+                    aux = self.__arregloCalefactor[i]
+        return aux 
+            
 
     def buscarMenorCostoElectrico(self, costokw, cantidadh):
-        calefMenorCosto = None
-        costo = 0
+        min = 9999999
+        aux = None
         for i in range(self.__arregloCalefactor.size):
             if isinstance(self.__arregloCalefactor[i], Electrico):
-                self.__arregloCalefactor[i].calcularCosto(costokw, cantidadh)
+                x = self.__arregloCalefactor[i].calcularConsumo(costokw, cantidadh)
+                if x < min:
+                    min = x
+                    aux = self.__arregloCalefactor[i]
+        return aux 
+
             
     def buscarMenorCosto(self):
-        calefMenorCosto = None
+        min = None
+        aux = None
         for i in range(self.__arregloCalefactor.size):
-            self.__arregloCalefactor[i].calcularCosto()
+            min = self.__arregloCalefactor[0].calcularConsumo()
+            aux = self.__arregloCalefactor[i]
+
+        

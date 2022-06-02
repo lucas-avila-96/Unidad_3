@@ -1,8 +1,10 @@
 from ClaseManejadorCalefactor import ManejadorCalefactor
 from ClaseMenu import Menu
+from ClaseCalefactor import Calefactor
 
 
 if __name__ == '__main__':
+    
     print('Ingrese cantidad de calefactores')
     dimension = int(input('Cantidad'))
     manejadorCalefactor = ManejadorCalefactor(dimension)

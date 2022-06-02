@@ -17,6 +17,11 @@ class Televisor(Aparato):
         d = dict(
             __class__= self.__class__.__name__,
             __atributos__= dict(
+                marca = self.getMarca(),
+                modelo = self.getModelo(), 
+                color = self.getColor(),
+                pais = self.getPaisDeFabricacion(),
+                precio = self.getPrecio(),
                 pantalla = self.__tipoDePantalla,
                 pulgadas = self.__pulgadas,
                 definicion = self.__tipoDedfinicion,

@@ -19,14 +19,16 @@ class Menu:
         costo = input('Costo: ')
         print('Ingresar cantidad estimada en m^3')
         cantidad = input('Cantidad: ')
-        manejadorCalefactor.menorCosto(costo, cantidad)
+        c = manejadorCalefactor.buscarMenorCostoGas(costo, cantidad)
+        print (c)
 
     def opcion2(self, manejadorCalefactor):
         print('Ingrese costo de el kilowatt/h')
         costo = input('Costo: ')
         print('Ingresar cantidad')
         cantidad = input('Cantidad: ')
-        manejadorCalefactor.menorCosto(costo, cantidad)
-
+        c = manejadorCalefactor.buscarMenorCostoElectrico(costo, cantidad)
+        print(c)
+        
     def opcion3(self, manejadorCalefactor):
-        pass
+        manejadorCalefactor.buscarMenorCosto()

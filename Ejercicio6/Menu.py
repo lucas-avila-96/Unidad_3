@@ -21,11 +21,12 @@ class Menu:
             func()
     
     def opcion1(self, listaAparatos):
-        elemento = Heladera('philips', 'mod1', 'blano', 'arg', '99999', '200L', True, True)
+        elemento = Heladera('philips', 'mod1', 'blanco', 'arg', '99999', '200L', True, True)
         pos = input('Posicion: ')
         listaAparatos.insertarElemento(elemento, pos)
 
     def opcion2(self, listaAparatos):
+        
         pass 
     
     def opcion3(self, listaAparatos):

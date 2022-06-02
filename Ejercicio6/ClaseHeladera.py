@@ -15,6 +15,11 @@ class Heladera(Aparato):
         d = dict(
             __class__= self.__class__.__name__,
             __atributos__= dict(
+                marca = self.getMarca(),
+                modelo = self.getModelo(), 
+                color = self.getColor(),
+                pais = self.getPaisDeFabricacion(),
+                precio = self.getPrecio(),
                 capacidad =self.__capacidadLts,
                 freezer = self.__freezer,
                 ciclica = self.__ciclica
