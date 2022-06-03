@@ -31,7 +31,7 @@ class Heladera(Aparato):
                 modelo = self.getModelo(), 
                 color = self.getColor(),
                 pais = self.getPaisDeFabricacion(),
-                precio = self.getPrecio(),
+                precio = self.getPrecioBase(),
                 capacidad =self.__capacidadLts,
                 freezer = self.__freezer,
                 ciclica = self.__ciclica

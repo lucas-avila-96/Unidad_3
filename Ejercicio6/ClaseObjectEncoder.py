@@ -1,4 +1,4 @@
-from Lista import Lista
+from ClaseLista import Lista
 import json
 from pathlib import Path
 

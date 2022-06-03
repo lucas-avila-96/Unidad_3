@@ -1,6 +1,6 @@
 from numpy import isin
 from zope.interface import implementer
-from Ejercicio7.ClaseDocenteInvestigador import DocenteInvestigador
+from ClaseDocenteInvestigador import DocenteInvestigador
 import Interfaz
 import Nodo
 

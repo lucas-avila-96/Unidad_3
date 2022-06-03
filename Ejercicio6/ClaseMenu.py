@@ -1,7 +1,7 @@
 from ClaseObjectEncoder import ObjectEncoder
 from ClaseHeladera import Heladera
-from Ejercicio6.ClaseLavarropa import Lavarropa
-from Ejercicio6.ClaseTelevisor import Televisor
+from ClaseLavarropa import Lavarropa
+from ClaseTelevisor import Televisor
 
 
 class Menu:
@@ -18,14 +18,14 @@ class Menu:
 
     def opcion(self,op, listaAparatos):
         func=self.__switcher.get(op, lambda: print("Opción no válida"))
-        if op == '1' or op == '2' or op == '3':
+        if op == '1' or op == '2' or op == '3' or op == '4' or op == '5' or op == '6' or op == '7':
             func(listaAparatos)
         else:
             func()
     
     def opcion1(self, listaAparatos):
         elemento = Heladera('philips', 'mod1', 'blanco', 'arg', '99999', '200L', True, True)
-        pos = input('Posicion: ')
+        pos = int(input('Posicion: '))
         try:
             listaAparatos.insertarElemento(elemento, pos)
         except IndexError:
@@ -33,9 +33,11 @@ class Menu:
 
     def opcion2(self, listaAparatos):
         elemento = None
+        elemento = Heladera('philips', 'mod1', 'blanco', 'arg', '99999', '200L', True, True)
+        ''''
         tipo = input('Tipo: ')
         tipo.lower()
-        if tipo == type(Heladera).__name__.lower():
+        if tipo == 'heladera':
             marca = input('Marca: ')
             modelo = input('Modelo: ')
             color = input('Color: ')
@@ -45,7 +47,7 @@ class Menu:
             freezer = input('Frezzer: ')
             ciclica = input('ciclica: ')
             elemento = Heladera(marca, modelo, color, pais, precio, capacidad, freezer, ciclica)
-        elif tipo == type(Lavarropa).__name__.lower():
+        elif tipo == 'lavarropa':
             marca = input('Marca: ')
             modelo = input('Modelo: ')
             color = input('Color: ')
@@ -56,7 +58,7 @@ class Menu:
             cantProgramas = input('Cantidad de programas: ')
             carga = input('Carga: ')
             elemento = Lavarropa(marca, modelo, color, pais, precio, capacidad, velocidad, cantProgramas, carga)
-        elif tipo == type(Televisor).__name__.lower():
+        elif tipo == 'televisor':
             marca = input('Marca: ')
             modelo = input('Modelo: ')
             color = input('Color: ')
@@ -67,6 +69,7 @@ class Menu:
             definicion = input('Definicon: ')
             internet = input('Internet')
             elemento = Televisor(marca, modelo, color, pais, precio, pantalla, pulgadas, definicion, internet)
+        '''
         listaAparatos.agregarElemento(elemento)
     
     def opcion3(self, listaAparatos):
@@ -92,4 +95,4 @@ class Menu:
     def opcion7(self, listaAparatos):
         jsonF = ObjectEncoder()
         d = listaAparatos.toJSON()
-        jsonF.guardarJSONArchivo(d,'aparatoselectronicos.json')
+        jsonF.guardarJSONArchivo(d,'Ejercicio6\Aparatoselectronicos.json')

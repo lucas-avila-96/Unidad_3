@@ -14,9 +14,6 @@ class Televisor(Aparato):
         self.__conexionInternet = internet
 
     def getImporteVenta(self):
-        '''
-        el 1% si el tipo de definición es SD, 2% si el tipo de definición es HD, 3% si el tipo de definición es FULL HD, mas 10% si tiene conexión a internet.
-        '''
         importe = self.getPrecioBase()
         if self.__tipoDedfinicion == 'SD':
             importe += importe * 1/100
@@ -34,7 +31,7 @@ class Televisor(Aparato):
                 modelo = self.getModelo(), 
                 color = self.getColor(),
                 pais = self.getPaisDeFabricacion(),
-                precio = self.getPrecio(),
+                precio = self.getPrecioBase(),
                 pantalla = self.__tipoDePantalla,
                 pulgadas = self.__pulgadas,
                 definicion = self.__tipoDedfinicion,

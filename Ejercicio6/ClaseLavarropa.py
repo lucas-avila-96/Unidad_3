@@ -30,7 +30,7 @@ class Lavarropa(Aparato):
                 modelo = self.getModelo(), 
                 color = self.getColor(),
                 pais = self.getPaisDeFabricacion(),
-                precio = self.getPrecio(),
+                precio = self.getPrecioBase(),
                 capacidadLavado = self.__capacidadLavado,
                 velocidadCentrifugador = self.__velocidadCentrifugado,
                 cantidadProgramas = self.__cantidadProgramas,

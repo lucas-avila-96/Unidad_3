@@ -1,0 +1,18 @@
+{
+    "__class__": "Lista",
+    "aparatos": [
+        {
+            "__class__": "Heladera",
+            "__atributos__": {
+                "marca": "philips",
+                "modelo": "mod1",
+                "color": "blanco",
+                "pais": "arg",
+                "precio": "99999",
+                "capacidad": "200L",
+                "freezer": true,
+                "ciclica": true
+            }
+        }
+    ]
+}

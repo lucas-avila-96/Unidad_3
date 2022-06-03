@@ -1,4 +1,4 @@
-from Lista import Lista
+from ClaseLista import Lista
 from ClaseObjectEncoder import ObjectEncoder
 from ClaseMenu import Menu
 from ClaseHeladera import Heladera
@@ -6,10 +6,11 @@ from ClaseHeladera import Heladera
 
 if __name__ == '__main__':
     menu = Menu()
-    
-    jsonF = ObjectEncoder()
-    diccionario = jsonF.leerJSONArchivo('aparatoselectronicos.json')
-    listaAparatos = jsonF.decodificarDiccionario(diccionario)
+    listaAparatos = Lista()
+
+    #jsonF = ObjectEncoder()
+    #diccionario = jsonF.leerJSONArchivo('aparatoselectronicos.json')
+    #listaAparatos = jsonF.decodificarDiccionario(diccionario)
 
     print('Seleccione una opcion')
     print('1. Insertar un aparato en la colección en una posición determinada.')
@@ -20,6 +21,8 @@ if __name__ == '__main__':
     print('5. Mostrar la marca de todos los lavarropas que tienen carga superior .')
     print('6. Mostrar para todos los aparatos que la empresa tiene a la venta, marca, país de fabricación e importe de venta.')
     print('7. Almacenar los objetos de la colección Lista en el archivo “aparatoselectronicos.json”.')
-
-    op = input('Opcion: ')
-    menu.opcion(op, listaAparatos)
+    opcion = input('\nIngrese una opcion: ')
+    while opcion != '8':
+        menu.opcion(opcion, listaAparatos)
+        opcion = input('\nIngrese una opcion (8 para finalizar): ')
+    print('\nSalió del Programa\n')

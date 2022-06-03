@@ -1,9 +1,10 @@
+
 from zope.interface import implementer
-import Interfaz
-import Nodo
+from Interfaz import ILista
+from Nodo import Nodo
 from ClaseLavarropa import Lavarropa
 
-@implementer(Interfaz)
+@implementer(ILista)
 class Lista:
     __comienzo = None
     __actual = None
@@ -109,8 +110,20 @@ class Lista:
         while aux != None:
             ap = aux.getDato()
             print(f'Marca: {ap.getMarca()}')
-            print(f'Pais de fabricacion: {ap.getPaisDeFabricaicon()}')
-            print(f'Precio: {ap.getPrecio()}')
+            print(f'Pais de fabricacion: {ap.getPaisDeFabricion()}')
+            print(f'Precio: {ap.getPrecioBase()}')
             aux = aux.getSiguiente()
             i += 1
+
+    def toJSON(self):
+        ap = []
+        aux= self.__comienzo
+        while aux != None:
+            ap.append(aux.getDato().toJSON())
+            aux= aux.getSiguiente()
+        d = dict(
+        __class__ = self.__class__.__name__,
+            aparatos = ap
+        )
+        return d
     
