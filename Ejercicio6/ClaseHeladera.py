@@ -13,7 +13,7 @@ class Heladera(Aparato):
         self.__ciclica = ciclica
     
     def getImporteVenta(self):
-        importe = self.getPrecioBase()
+        importe = int(self.getPrecioBase())
         if self.__freezer is True:
             importe += importe * 5/100
         if self.__freezer == False:
@@ -31,7 +31,7 @@ class Heladera(Aparato):
                 modelo = self.getModelo(), 
                 color = self.getColor(),
                 pais = self.getPaisDeFabricacion(),
-                precio = self.getPrecioBase(),
+                precio = self.getImporteVenta(),
                 capacidad =self.__capacidadLts,
                 freezer = self.__freezer,
                 ciclica = self.__ciclica

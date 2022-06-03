@@ -44,7 +44,7 @@ class Lista:
         self.__actual = nodo
         self.__tope += 1
 
-    def insertarElemento(self, pos, item):
+    def insertarElemento(self, item, pos):
         if pos > self.size() - 1:
             raise IndexError
         actual = self.__comienzo
@@ -86,6 +86,7 @@ class Lista:
     def calcularCantidadPorMarca(self, marca):
         aux = self.__comienzo
         c = 0
+        i = 0
         while aux != None:
             ap = aux.getDato()
             if ap.getMarca() == marca:
@@ -97,6 +98,7 @@ class Lista:
     def obtenerLavarropasCargaSuperior(self):
         aux = self.__comienzo
         lista = []
+        i = 0
         while aux != None:
             ap = aux.getDato()
             if isinstance(ap, Lavarropa):
@@ -107,11 +109,12 @@ class Lista:
 
     def mostrarDatos(self):
         aux = self.__comienzo
+        i = 0
         while aux != None:
             ap = aux.getDato()
             print(f'Marca: {ap.getMarca()}')
-            print(f'Pais de fabricacion: {ap.getPaisDeFabricion()}')
-            print(f'Precio: {ap.getPrecioBase()}')
+            print(f'Pais de fabricacion: {ap.getPaisDeFabricacion()}')
+            print(f'Precio: {ap.getImporteVenta()}')
             aux = aux.getSiguiente()
             i += 1
 

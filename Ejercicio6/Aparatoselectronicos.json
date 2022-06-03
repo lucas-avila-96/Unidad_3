@@ -2,6 +2,34 @@
     "__class__": "Lista",
     "aparatos": [
         {
+            "__class__": "Televisor",
+            "__atributos__": {
+                "marca": "philips",
+                "modelo": "mod3",
+                "color": "blanco",
+                "pais": "arg",
+                "precio": "99999",
+                "pantalla": "led",
+                "pulgadas": 50,
+                "definicion": "HD",
+                "internet": true
+            }
+        },
+        {
+            "__class__": "Lavarropa",
+            "__atributos__": {
+                "marca": "philips",
+                "modelo": "mod2",
+                "color": "blanco",
+                "pais": "arg",
+                "precio": "99999",
+                "capacidadLavado": 6,
+                "velocidadCentrifugador": 600,
+                "cantidadProgramas": 5,
+                "tipoCarga": "superior"
+            }
+        },
+        {
             "__class__": "Heladera",
             "__atributos__": {
                 "marca": "philips",

@@ -7,15 +7,15 @@ class Lavarropa(Aparato):
     __tipoCarga = ''
 
 
-    def __init__(self, marca, modelo, color, pais, precio, capacidad, velocidad, cantProgramas, carga):
+    def __init__(self, marca, modelo, color, pais, precio, capacidadLavado, velocidadCentrifugador, cantidadProgramas, tipoCarga):
         super().__init__(marca, modelo, color, pais, precio)
-        self.__capacidadLavado = capacidad
-        self.__velocidadCentrifugado = velocidad
-        self.__cantidadProgramas = cantProgramas
-        self.__tipoCarga = carga
+        self.__capacidadLavado = capacidadLavado
+        self.__velocidadCentrifugado = velocidadCentrifugador
+        self.__cantidadProgramas = cantidadProgramas
+        self.__tipoCarga = tipoCarga
 
     def getImporteVenta(self):
-        importe = self.getPrecioBase()
+        importe = int(self.getPrecioBase())
         if self.__capacidadLavado < 5:
             importe += importe * 1/100
         else:
@@ -30,7 +30,7 @@ class Lavarropa(Aparato):
                 modelo = self.getModelo(), 
                 color = self.getColor(),
                 pais = self.getPaisDeFabricacion(),
-                precio = self.getPrecioBase(),
+                precio = self.getImporteVenta(),
                 capacidadLavado = self.__capacidadLavado,
                 velocidadCentrifugador = self.__velocidadCentrifugado,
                 cantidadProgramas = self.__cantidadProgramas,

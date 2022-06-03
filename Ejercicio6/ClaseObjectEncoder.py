@@ -1,6 +1,11 @@
 from ClaseLista import Lista
 import json
 from pathlib import Path
+from ClaseHeladera import Heladera
+from ClaseLavarropa import Lavarropa
+from ClaseTelevisor import Televisor
+
+
 
 class ObjectEncoder(object):
     def decodificarDiccionario(self, d):
@@ -10,17 +15,17 @@ class ObjectEncoder(object):
             class_name = d['__class__']
             class_ = eval(class_name)
             if class_name == 'Lista':
-                aparatos = d['Aparato']
-                dAparatos = aparatos[0]
+                aparatos = d['aparatos']
+                dAparato = aparatos[0]
                 lista = class_()
                 for i in range(len(aparatos)):
-                    dAparatos = aparatos[i]
-                    class_name = dAparatos.pop('__class__')
+                    dAparato = aparatos[i]
+                    class_name = dAparato.pop('__class__')
                     class_ = eval(class_name)
-                    atributos = dAparatos['__atributos__']
+                    atributos = dAparato['__atributos__']
                     unAparato = class_(**atributos)
                     lista.agregarElemento(unAparato)
-                return lista
+            return lista
 
     def leerJSONArchivo(self, archivo):
         with Path(archivo).open(encoding="UTF-8") as fuente:

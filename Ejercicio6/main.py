@@ -8,9 +8,9 @@ if __name__ == '__main__':
     menu = Menu()
     listaAparatos = Lista()
 
-    #jsonF = ObjectEncoder()
-    #diccionario = jsonF.leerJSONArchivo('aparatoselectronicos.json')
-    #listaAparatos = jsonF.decodificarDiccionario(diccionario)
+    jsonF = ObjectEncoder()
+    diccionario = jsonF.leerJSONArchivo('Ejercicio6\Aparatoselectronicos.json')
+    listaAparatos = jsonF.decodificarDiccionario(diccionario)
 
     print('Seleccione una opcion')
     print('1. Insertar un aparato en la colección en una posición determinada.')

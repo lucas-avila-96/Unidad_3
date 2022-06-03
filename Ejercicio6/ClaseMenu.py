@@ -32,8 +32,9 @@ class Menu:
             print('Error de indice')
 
     def opcion2(self, listaAparatos):
-        elemento = None
-        elemento = Heladera('philips', 'mod1', 'blanco', 'arg', '99999', '200L', True, True)
+        elemento1 = Heladera('philips', 'mod1', 'blanco', 'arg', '99999', '200L', True, True)
+        elemento2 = Lavarropa('philips', 'mod2', 'blanco', 'arg', '99999', 6, 600, 5, 'superior')
+        elemento3 = Televisor('philips', 'mod3', 'blanco', 'arg', '99999', 'led', 50, 'HD', True)
         ''''
         tipo = input('Tipo: ')
         tipo.lower()
@@ -70,11 +71,14 @@ class Menu:
             internet = input('Internet')
             elemento = Televisor(marca, modelo, color, pais, precio, pantalla, pulgadas, definicion, internet)
         '''
-        listaAparatos.agregarElemento(elemento)
+        listaAparatos.agregarElemento(elemento1)
+        listaAparatos.agregarElemento(elemento2)
+        listaAparatos.agregarElemento(elemento3)
+
     
     def opcion3(self, listaAparatos):
        print('Ingrese posicion')
-       pos = input('Posicion')
+       pos = int(input('Posicion'))
        listaAparatos.consultarTipoAparato(pos)
 
     def opcion4(self, listaAparatos):
@@ -86,8 +90,9 @@ class Menu:
     def opcion5(self, listaAparatos):
         l = listaAparatos.obtenerLavarropasCargaSuperior()
         print('Aparatos con carga superior:')
-        for ap in l:
-            print(f'{ap.getMarca()}')
+        if len(l) > 0:
+            for ap in l:
+                print(f'{ap.getMarca()}')
 
     def opcion6(self, listaAparatos):
         listaAparatos.mostrarDatos()
