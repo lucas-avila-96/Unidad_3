@@ -8,6 +8,8 @@ class PersonalApoyo(Personal):
         super().__init__(cuil, apellido, nombre, sueldoBaisco, antiguedad)
         self.__categoria = categoria
 
+    def getCategoria(self):
+        return self.__categoria
 
     def toJSON(self):
         d = dict(
@@ -17,3 +19,4 @@ class PersonalApoyo(Personal):
             )
         )
         return d
+

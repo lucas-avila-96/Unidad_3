@@ -12,20 +12,18 @@ class DocenteInvestigador(Docente, Investigador):
         self.__importeExtra = importeExtra
 
     def __str__(self):
-        cadena = 'Cuil: '+ self.getCuil() +'\n'
+        cadena = 'Cuil: '+ str(self.getCuil()) +'\n'
         cadena += 'Apellido: '+ self.getApellido() +'\n'
         cadena += 'Nombre: '+ self.getNombre() +'\n'
-        cadena += 'Sueldo basico: '+ self.getSueldoBasico() +'\n'
-        cadena += 'Antiguedad: '+ self.getAntiguedad() +'\n'
+        cadena += 'Sueldo basico: '+ str(self.getSueldoBasico()) +'\n'
+        cadena += 'Antiguedad: '+ str(self.getAntiguedad()) +'\n'
         cadena += 'Carrera: '+ self.getCarrera() +'\n'
         cadena += 'Cargo: '+ self.getCargo() +'\n'
         cadena += 'Area: '+ self.getArea() +'\n'
         cadena += 'Tipo: '+ self.getTipo() +'\n'
         cadena += 'Categoria Incentivo: '+ self.__categoriaIncetivo +'\n'
-        cadena += 'Importe Extra: '+ self.__importeExtra +'\n'
-
+        cadena += 'Importe Extra: '+ str(self.__importeExtra) +'\n'
         return cadena
-        
 
     def toJSON(self):
         d = dict(

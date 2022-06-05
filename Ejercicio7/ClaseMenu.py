@@ -3,8 +3,8 @@ from ClaseDocente import Docente
 from ClaseDocenteInvestigador import DocenteInvestigador
 from ClaseInvestigador import Investigador
 from ClasePersonalApoyo import PersonalApoyo
-
-
+import json
+from ClaseObjectEncoder import ObjectEncoder
 
 class Menu:
     __switcher=None
@@ -19,14 +19,14 @@ class Menu:
                             '8':self.opcion7,
                             }
 
-    def opcion(self,op, listaPersonal):
+    def opcion(self,op, listaAgentes):
         func=self.__switcher.get(op, lambda: print("Opción no válida"))
         if op == '1' or op == '2' or op == '3':
-            func(listaPersonal)
+            func(listaAgentes)
         else:
             func()
         
-    def opcion1(self, listaPersonal):
+    def opcion1(self, listaAgentes):
         '''
         elemento = None
         tipo = input('Tipo: ')
@@ -52,19 +52,19 @@ class Menu:
         elemento2 = Investigador()
         elemento3 = DocenteInvestigador()
         elemento4 = PersonalApoyo()
-        listaPersonal.agregarElemento(elemento1)
-        listaPersonal.agregarElemento(elemento2)
-        listaPersonal.agregarElemento(elemento3)
-        listaPersonal.agregarElemento(elemento4)
+        listaAgentes.agregarElemento(elemento1)
+        listaAgentes.agregarElemento(elemento2)
+        listaAgentes.agregarElemento(elemento3)
+        listaAgentes.agregarElemento(elemento4)
 
-    def opcion2(self, listaPersonal):
-        elemento = None
+    def opcion2(self, listaAgentes):
+        elemento5 = None
         tipo = input('Tipo: ')
         tipo.lower()
         pos = int(input('Posicion: '))
         elemento5 = Docente()
         try:
-            listaPersonal.insertarElemento(elemento5, pos)
+            listaAgentes.insertarElemento(elemento5, pos)
         except IndexError:
             print('Error de indice')
             
@@ -84,36 +84,37 @@ class Menu:
         '''
 
 
-    def opcion3(self, listaPersonal):
+    def opcion3(self, listaAgentes):
         print('Ingrese posicion')
         pos = int(input('Posicion'))
         try:
-            pers = listaPersonal.consultarTipoPersonal(pos)
+            pers = listaAgentes.consultarTipoPersonal(pos)
         except IndexError:
             print('Posicion no encontrada')
         
         print(f'El agente en la posicion {pos} es {type(pers).__name__}')
 
 
-    def opcion4(self, listaPersonal):
+    def opcion4(self, listaAgentes):
         print('Ingrese carrera')
         carrera = input('Carrera: ')
-        pers = listaPersonal.generarLista(carrera)
+        pers = listaAgentes.generarLista(carrera)
         lo = self.ordenarLista(pers)
         for pers in lo:
             print(pers)
 
-    def opcion5(self, listaPersonal):
+    def opcion5(self, listaAgentes):
         pass
 
-    def opcion6(self, listaPersonal):
+    def opcion6(self, listaAgentes):
         pass
 
-    def opcion7(self, listaPersonal):
+    def opcion7(self, listaAgentes):
         pass
 
-    def opcion8(self, listaPersonal):
-        pass
-
+    def opcion8(self, listaAgentes):
+        jsonF = ObjectEncoder()
+        d = listaAgentes.toJSON()
+        jsonF.guardarJSONArchivo(d,'Ejercicio6\Aparatoselectronicos.json')
 
     

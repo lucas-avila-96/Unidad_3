@@ -1,12 +1,12 @@
 
 from zope.interface import implementer
 from ClaseDocenteInvestigador import DocenteInvestigador
-from Ejercicio7.ClaseInvestigador import Investigador
-import Interfaz
+from ClaseInvestigador import Investigador
+from Interfaz import ILista
 import Nodo
 
 
-@implementer(Interfaz)
+@implementer(ILista)
 class Lista:
     __comienzo = None
     __actual = None
@@ -133,6 +133,17 @@ class Lista:
             aux = aux.getSiguiente()
         return pers
 
+    def toJSON(self):
+        lista = []
+        aux= self.__comienzo
+        while aux != None:
+            lista.append(aux.getDato().toJSON())
+            aux = aux.getSiguiente()
+        d = dict(
+        __class__ = self.__class__.__name__,
+            agentes = lista
+        )
+        return d
 
 
 

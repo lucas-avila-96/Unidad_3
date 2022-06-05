@@ -4,10 +4,16 @@ class Investigador(Personal):
     __area = ''
     __tipo = ''
 
-    def __init__(self, cuil, apellido, nombre, sueldoBaisco, antiguedad, area, tipo):
-        super().__init__(cuil, apellido, nombre, sueldoBaisco, antiguedad)
+    def __init__(self, cuil, apellido, nombre, sueldoBaisco, antiguedad, carrera, cargo, catedra, area, tipo):
+        super().__init__(cuil, apellido, nombre, sueldoBaisco, antiguedad, carrera, cargo, catedra, area, tipo)
         self.__area = area
         self.__tipo = tipo
+
+    def getArea(self):
+        return self.__area
+    
+    def getTipo(self):
+        return self.__tipo
 
     def toJSON(self):
         d = dict(

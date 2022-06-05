@@ -1,9 +1,14 @@
 from ClaseLista import Lista
 from ClaseMenu import Menu
 from ClaseObjectEncoder import ObjectEncoder
-
+from ClaseDocenteInvestigador import DocenteInvestigador
 
 if __name__ == '__main__':
+    '''
+    print('MRO de la clase Ayudante: ', DocenteInvestigador.mro())
+    di = DocenteInvestigador(41223444, 'Juarez', 'Roberto',150000, 5, 'LCC', 'Profesor','POO', 'area', 'tipo', 'incentivo', 20000)
+    print(di)
+    '''
     jsonF = ObjectEncoder()
     menu = Menu()
     diccionario = jsonF.leerJSONArchivo('personal.json')
