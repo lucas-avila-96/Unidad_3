@@ -3,7 +3,8 @@ from zope.interface import implementer
 from ClaseDocenteInvestigador import DocenteInvestigador
 from ClaseInvestigador import Investigador
 from Interfaz import ILista
-import Nodo
+from Nodo import Nodo
+
 
 
 @implementer(ILista)
@@ -76,15 +77,17 @@ class Lista:
             print(aux.getDato())
 
     def consultarTipoPersonal(self, pos):
+        if pos > self.size() - 1:
+            raise IndexError()
         aux = self.__comienzo
-        pers = None
+        ap = None
         i = 0
-        while aux != None and i < pos:
-            pers = aux.getDato()
+        while i < pos:
+            ap = aux.getDato()
             aux = aux.getSiguiente()
             i += 1
-        print(f'La persona en la posicion {pos} es {type(pers).__name__}')
-    
+        return ap
+
     def listarDocentesInvestigadores(self, carrera):
         aux = self.__comienzo
         lista = []
@@ -140,10 +143,11 @@ class Lista:
             lista.append(aux.getDato().toJSON())
             aux = aux.getSiguiente()
         d = dict(
-        __class__ = self.__class__.__name__,
-            agentes = lista
+            __class__ = self.__class__.__name__,
+                agentes = lista
         )
         return d
+    
 
 
 

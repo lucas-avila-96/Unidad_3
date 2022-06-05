@@ -29,8 +29,18 @@ class DocenteInvestigador(Docente, Investigador):
         d = dict(
             __class__= self.__class__.__name__,
             __atributos__= dict(
+                cuil = self.getCuil(), 
+                apellido = self.getApellido(), 
+                nombre = self.getNombre(), 
+                sueldoBaisco = self.getSueldoBasico(), 
+                antiguedad = self.getAntiguedad(), 
+                carrera = self.getCarrera(), 
+                cargo = self.getCargo(), 
+                catedra = self.getCatetra(), 
+                area = self.getArea(), 
+                tipo = self.getTipo(),
                 categoriaIncetivo = self.__categoriaIncetivo,
-                importExtra = self.__importeExtra,
+                importeExtra = self.__importeExtra,
             )
         )
         return d

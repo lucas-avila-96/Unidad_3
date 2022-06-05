@@ -6,8 +6,6 @@ from ClaseHeladera import Heladera
 
 if __name__ == '__main__':
     menu = Menu()
-    listaAparatos = Lista()
-
     jsonF = ObjectEncoder()
     diccionario = jsonF.leerJSONArchivo('Ejercicio6\Aparatoselectronicos.json')
     listaAparatos = jsonF.decodificarDiccionario(diccionario)

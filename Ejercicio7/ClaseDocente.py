@@ -12,6 +12,16 @@ class Docente(Personal):
         self.__carrera = carrera
         self.__cargo = cargo
         self.__catedra = catedra
+    
+    def __str__(self):
+        cadena = 'Cuil: '+ str(self.getCuil()) +'\n'
+        cadena += 'Apellido: '+ self.getApellido() +'\n'
+        cadena += 'Nombre: '+ self.getNombre() +'\n'
+        cadena += 'Sueldo basico: '+ str(self.getSueldoBasico()) +'\n'
+        cadena += 'Antiguedad: '+ str(self.getAntiguedad()) +'\n'
+        cadena += 'Carrera: '+ self.getCarrera() +'\n'
+        cadena += 'Cargo: '+ self.getCargo() +'\n'
+        return cadena
 
     def getCarrera(self):
         return self.__carrera
@@ -26,6 +36,11 @@ class Docente(Personal):
         d = dict(
             __class__= self.__class__.__name__,
             __atributos__= dict(
+                cuil = self.getCuil(), 
+                apellido = self.getApellido(), 
+                nombre = self.getNombre(), 
+                sueldoBaisco = self.getSueldoBasico(), 
+                antiguedad = self.getAntiguedad(),
                 carrera = self.__carrera,
                 cargo = self.__cargo,
                 catedra = self.__catedra,

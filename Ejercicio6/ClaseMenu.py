@@ -79,7 +79,6 @@ class Menu:
     def opcion3(self, listaAparatos):
         print('Ingrese posicion')
         pos = int(input('Posicion'))
-        listaAparatos.consultarTipoAparato(pos)
         try:
             ap = listaAparatos.consultarTipoAparato(pos)
         except IndexError:

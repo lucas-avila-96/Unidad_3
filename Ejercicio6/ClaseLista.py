@@ -127,8 +127,8 @@ class Lista:
             ap.append(aux.getDato().toJSON())
             aux = aux.getSiguiente()
         d = dict(
-        __class__ = self.__class__.__name__,
-            aparatos = ap
+            __class__ = self.__class__.__name__,
+                aparatos = ap
         )
         return d
     
