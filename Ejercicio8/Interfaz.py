@@ -1,7 +1,7 @@
 
 from zope.interface import Interface
 
-class Interfaz(Interface):
+class ILista(Interface):
     def insertarElemento(elemento, posicion):
         pass
 

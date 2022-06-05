@@ -2,12 +2,15 @@
 from zope.interface import implementer
 from ClaseDocenteInvestigador import DocenteInvestigador
 from ClaseInvestigador import Investigador
+from IDirector import IDirector
+from ITesorero import ITesorero
 from Interfaz import ILista
 from Nodo import Nodo
 
 
-
 @implementer(ILista)
+@implementer(IDirector)
+@implementer(ITesorero)
 class Lista:
     __comienzo = None
     __actual = None
@@ -122,6 +125,7 @@ class Lista:
                     pers.append(aux.getDato())
             aux = aux.getSiguiente()
         return pers
+    
 
     def toJSON(self):
         lista = []
@@ -134,9 +138,54 @@ class Lista:
                 agentes = lista
         )
         return d
-    
 
+    def buscarDni(self, dni):
+        aux = self.__comienzo
+        band = True
+        pers = None
+        while aux != None and band:
+            pers = aux.getDato()
+            if pers.getCuil() == dni:
+                band = False
+            aux = aux.getSiguiente()
+        return pers
 
+    def gastosSueldoPorEmpleado(self, dni):
+        persona = self.buscarDni(dni)
+        if persona == None:
+            print('dni no encontrado')
+        else:
+            print(f'{persona.getSueldoBasico()}')
+
+    def modificarBasico(self, dni, nuevoBasico):
+        persona = self.buscarDni(dni)
+        if persona == None:
+            print('dni no encontrado')
+        else:
+            persona.setSueldoBasico(nuevoBasico)
+        
+
+    def modificarPorcentajeporcargo(self, dni, nuevoPorcentaje):
+        persona = self.buscarDni(dni)
+        if persona == None:
+            print('dni no encontrado')
+        else:
+            persona.setPorcentajeCargo(nuevoPorcentaje)
+
+    def modificarPorcentajeporcategoria(self, dni, nuevoPorcentaje):
+        persona = self.buscarDni(dni)
+        if persona == None:
+            print('dni no encontrado')
+        else:
+            persona.setPorcentajeCategoria(nuevoPorcentaje)
+
+    def modificarImporteExtra(self, dni, nuevoImporteExtra):
+        persona = self.buscarDni(dni)
+        if persona == None:
+            print('dni no encontrado')
+        else:
+            persona.setImporteExtra(nuevoImporteExtra)
+            
 
 
     

@@ -25,7 +25,7 @@ class Menu:
             func(listaAgentes)
         else:
             func()
-
+    
     def opcion1(self, listaAgentes):
         elemento5 = None
         tipo = input('Tipo: ')
@@ -119,6 +119,7 @@ class Menu:
     def opcion8(self, listaAgentes):
         jsonF = ObjectEncoder()
         d = listaAgentes.toJSON()
-        jsonF.guardarJSONArchivo(d,'Ejercicio7\Personal.json')
+        jsonF.guardarJSONArchivo(d,'Ejercicio8\Personal.json')
+
 
     
