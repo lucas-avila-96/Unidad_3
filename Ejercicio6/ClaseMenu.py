@@ -77,9 +77,16 @@ class Menu:
 
     
     def opcion3(self, listaAparatos):
-       print('Ingrese posicion')
-       pos = int(input('Posicion'))
-       listaAparatos.consultarTipoAparato(pos)
+        print('Ingrese posicion')
+        pos = int(input('Posicion'))
+        listaAparatos.consultarTipoAparato(pos)
+        try:
+            ap = listaAparatos.consultarTipoAparato(pos)
+        except IndexError:
+            print('Posicion no encontrada')
+
+        print(f'El aparato en la posicion {pos} es {type(ap).__name__}')
+
 
     def opcion4(self, listaAparatos):
         print('Ingrese marca')

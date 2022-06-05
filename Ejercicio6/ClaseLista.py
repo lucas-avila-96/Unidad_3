@@ -74,14 +74,16 @@ class Lista:
             print(aux.getDato())
 
     def consultarTipoAparato(self, pos):
+        if pos > self.size() - 1:
+            raise IndexError()
         aux = self.__comienzo
         ap = None
         i = 0
-        while aux != None and i < pos:
+        while i < pos:
             ap = aux.getDato()
             aux = aux.getSiguiente()
             i += 1
-        print(f'El aparato en la posicion {pos} es {type(ap).__name__}')
+        return ap
 
     def calcularCantidadPorMarca(self, marca):
         aux = self.__comienzo
@@ -123,7 +125,7 @@ class Lista:
         aux= self.__comienzo
         while aux != None:
             ap.append(aux.getDato().toJSON())
-            aux= aux.getSiguiente()
+            aux = aux.getSiguiente()
         d = dict(
         __class__ = self.__class__.__name__,
             aparatos = ap

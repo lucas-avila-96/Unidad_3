@@ -1,6 +1,7 @@
-from numpy import isin
+
 from zope.interface import implementer
 from ClaseDocenteInvestigador import DocenteInvestigador
+from Ejercicio7.ClaseInvestigador import Investigador
 import Interfaz
 import Nodo
 
@@ -47,7 +48,7 @@ class Lista:
 
     def insertarElemento(self, pos, item):
         if pos > self.size() - 1:
-            raise IndexError('posicion no encontrada')
+            raise IndexError()
         actual = self.__comienzo
         anterior = None
         i = 0
@@ -100,3 +101,40 @@ class Lista:
                     band = True
         return lista
 
+    def consultarTipoPersonal(self, pos):
+        if pos > self.size() - 1:
+            raise IndexError()
+        aux = self.__comienzo
+        pers = None
+        i = 0
+        while i < pos:
+            pers = aux.getDato()
+            aux = aux.getSiguiente()
+            i += 1
+        return pers
+
+    def ordenarLista(self, lista):
+        band = True
+        while band:
+            band = False
+            for i in range(len(lista) - 1):
+                if lista[i].getApellido() < lista[i + 1].getApellido():
+                    lista[i], lista[i + 1] = lista[i + 1], lista[i]
+                    band = True
+        return lista
+
+    def generarLista(self, carrera):
+        aux = self.__comienzo
+        pers = []
+        while aux != None:
+            if isinstance(aux, DocenteInvestigador):
+                if aux.getDato().getCarrera() == carrera:
+                    pers.append(aux.getDato())
+            aux = aux.getSiguiente()
+        return pers
+
+
+
+
+
+    

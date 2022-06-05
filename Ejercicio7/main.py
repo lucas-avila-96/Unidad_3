@@ -1,4 +1,4 @@
-from Lista import Lista
+from ClaseLista import Lista
 from ClaseMenu import Menu
 from ClaseObjectEncoder import ObjectEncoder
 

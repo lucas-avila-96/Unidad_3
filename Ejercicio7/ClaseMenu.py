@@ -27,6 +27,7 @@ class Menu:
             func()
         
     def opcion1(self, listaPersonal):
+        '''
         elemento = None
         tipo = input('Tipo: ')
         tipo.lower()
@@ -46,40 +47,61 @@ class Menu:
             #inputs
             #elemento = PersonalApoyo()
             pass
-        listaPersonal.agregarElemento(elemento)
+        '''
+        elemento1 = Docente()
+        elemento2 = Investigador()
+        elemento3 = DocenteInvestigador()
+        elemento4 = PersonalApoyo()
+        listaPersonal.agregarElemento(elemento1)
+        listaPersonal.agregarElemento(elemento2)
+        listaPersonal.agregarElemento(elemento3)
+        listaPersonal.agregarElemento(elemento4)
 
     def opcion2(self, listaPersonal):
         elemento = None
         tipo = input('Tipo: ')
         tipo.lower()
         pos = int(input('Posicion: '))
+        elemento5 = Docente()
+        try:
+            listaPersonal.insertarElemento(elemento5, pos)
+        except IndexError:
+            print('Error de indice')
+            
+        '''
         if tipo == type(Docente).__name__.lower():
-            #inputs
-            #elemento = Docente()
+            inputs
             pass
         elif tipo == type(Investigador).__name__.lower():
-            #inputs
-            #elemento = Invesigador()
+            inputs
             pass
         elif tipo == type(DocenteInvestigador).__name__.lower():
-            #inputs
-            #elemento = DocenteInvesigador()
+            inputs
             pass
         elif tipo == type(PersonalApoyo).__name__.lower():
-            #inputs
-            #elemento = PersonalApoyo()
+            inputs
             pass
-        listaPersonal.insertarElemento(elemento, pos)
+        '''
+
 
     def opcion3(self, listaPersonal):
-        print('Ingresar nombre de la carrera')
-        carrera = input('Carrera: ')
-        l = listaPersonal.listarDocentesInvestigadores(carrera)
-        for pers in l:
-            print(pers)
-            
+        print('Ingrese posicion')
+        pos = int(input('Posicion'))
+        try:
+            pers = listaPersonal.consultarTipoPersonal(pos)
+        except IndexError:
+            print('Posicion no encontrada')
+        
+        print(f'El agente en la posicion {pos} es {type(pers).__name__}')
+
+
     def opcion4(self, listaPersonal):
-        pass
+        print('Ingrese carrera')
+        carrera = input('Carrera: ')
+        pers = listaPersonal.generarLista(carrera)
+        lo = self.ordenarLista(pers)
+        for pers in lo:
+            print(pers)
 
     def opcion5(self, listaPersonal):
         pass
