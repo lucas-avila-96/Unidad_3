@@ -113,7 +113,7 @@ class Lista:
                     band = True
         return lista
 
-    def generarLista(self, carrera):
+    def generarListaCarrera(self, carrera):
         aux = self.__comienzo
         pers = []
         while aux != None:
@@ -122,6 +122,25 @@ class Lista:
                     pers.append(aux.getDato())
             aux = aux.getSiguiente()
         return pers
+    
+    def generarListaCategoria(self, categoria):
+        aux = self.__comienzo
+        pers = []
+        while aux != None:
+            if isinstance(aux, DocenteInvestigador):
+                if aux.getDato().getCategoria() == categoria:
+                    pers.append(aux.getDato())
+            aux = aux.getSiguiente()
+        return pers
+    
+    def obtenerListado(self):
+        aux= self.__comienzo
+        lista = []
+        while aux != None:
+            lista.append(aux.getDato())
+            aux = aux.getSiguiente()
+        return lista
+
 
     def toJSON(self):
         lista = []

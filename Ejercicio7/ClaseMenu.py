@@ -74,7 +74,7 @@ class Menu:
             #elemento = PersonalApoyo()
             pass
         '''
-        elemento1 = DocenteInvestigador(41223444, 'Diaz', 'Martin',150000, 5, 'LCC', 'Profesor','POO', 'area2', 'tipo2', 'incentivo', 20000)
+        elemento1 = DocenteInvestigador(41223444, 'Diaz', 'Martin',150000, 5, 'LCC', 'Profesor','POO', 'area2', 'tipo2', '1', 20000)
         #elemento2 = Docente(31455451, 'Lopez', 'Matias',140000, 5, 'LCC', 'Profesor','Discreta')
         #elemento3 = Investigador(41223444, 'Juarez', 'Roberto',150000, 5, 'area1', 'tipo1')
         #elemento4 = PersonalApoyo(41223444, 'Perez', 'Pablo',150000, 5, 'categoria1')
@@ -100,7 +100,7 @@ class Menu:
     def opcion4(self, listaAgentes):
         print('Ingrese carrera')
         carrera = input('Carrera: ')
-        pers = listaAgentes.generarLista(carrera)
+        pers = listaAgentes.generarListaPorCarrera(carrera)
         lo = self.ordenarLista(pers)
         for pers in lo:
             print(pers)
@@ -111,10 +111,21 @@ class Menu:
         listaAgentes.mostrarAgentesPorArea(area)
         
     def opcion6(self, listaAgentes):
-        pass
+        pers = listaAgentes.obtenerListado()
+        lo = self.ordenarLista(pers)
+        for agente in lo:
+            print(f'Tipo de agente: {type(agente).__name__}')
+            print(f'Sueldo: {agente.getSueldoBasico()}')
 
     def opcion7(self, listaAgentes):
-        pass
+        print('Ingrese categoria')
+        categoria = input('Categoria: ')
+        pers = listaAgentes.generarListaPorCategoria(categoria)
+        for agente in pers:
+            print(f'{agente.getApellido()}')
+            print(f'{agente.getNombre()}')
+            print(f'{agente.getImporteExtra()}')
+
 
     def opcion8(self, listaAgentes):
         jsonF = ObjectEncoder()

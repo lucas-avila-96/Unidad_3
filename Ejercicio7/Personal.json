@@ -14,6 +14,23 @@
                 "catedra": "POO",
                 "area": "area2",
                 "tipo": "tipo2",
+                "categoriaIncetivo": "1",
+                "importeExtra": 20000
+            }
+        },
+        {
+            "__class__": "DocenteInvestigador",
+            "__atributos__": {
+                "cuil": 41223444,
+                "apellido": "Diaz",
+                "nombre": "Martin",
+                "sueldoBaisco": 150000,
+                "antiguedad": 5,
+                "carrera": "LCC",
+                "cargo": "Profesor",
+                "catedra": "POO",
+                "area": "area2",
+                "tipo": "tipo2",
                 "categoriaIncetivo": "incentivo",
                 "importeExtra": 20000
             }
