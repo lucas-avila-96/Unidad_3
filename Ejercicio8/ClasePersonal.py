@@ -28,7 +28,4 @@ class Personal:
     def getAntiguedad(self):
         return self.__antiguedad
 
-    def setSueldoBasico(self, nuevoSueldoBasico):
-        self.__sueldoBasico = nuevoSueldoBasico
-
     

@@ -11,19 +11,12 @@ class DocenteInvestigador(Docente, Investigador):
         self.__categoriaIncetivo = categoriaIncetivo
         self.__importeExtra = importeExtra
 
-    def __str__(self):
-        cadena = 'Cuil: '+ str(self.getCuil()) +'\n'
-        cadena += 'Apellido: '+ self.getApellido() +'\n'
-        cadena += 'Nombre: '+ self.getNombre() +'\n'
-        cadena += 'Sueldo basico: '+ str(self.getSueldoBasico()) +'\n'
-        cadena += 'Antiguedad: '+ str(self.getAntiguedad()) +'\n'
-        cadena += 'Carrera: '+ self.getCarrera() +'\n'
-        cadena += 'Cargo: '+ self.getCargo() +'\n'
-        cadena += 'Area: '+ self.getArea() +'\n'
-        cadena += 'Tipo: '+ self.getTipo() +'\n'
-        cadena += 'Categoria Incentivo: '+ self.__categoriaIncetivo +'\n'
-        cadena += 'Importe Extra: '+ str(self.__importeExtra) +'\n'
-        return cadena
+    def getSueldo(self):
+        sueldo = self.__sueldoBasico * (self.__antiguedad/100)
+        sueldo + self.getSueldo()
+        sueldo + self.__importeExtra
+        return sueldo
+
 
     def toJSON(self):
         d = dict(
@@ -32,7 +25,7 @@ class DocenteInvestigador(Docente, Investigador):
                 cuil = self.getCuil(), 
                 apellido = self.getApellido(), 
                 nombre = self.getNombre(), 
-                sueldoBaisco = self.getSueldoBasico(), 
+                sueldo = self.getSueldo(), 
                 antiguedad = self.getAntiguedad(), 
                 carrera = self.getCarrera(), 
                 cargo = self.getCargo(), 
@@ -45,6 +38,17 @@ class DocenteInvestigador(Docente, Investigador):
         )
         return d
 
-    
-
+    def __str__(self):
+        cadena = 'Cuil: '+ str(self.getCuil()) +'\n'
+        cadena += 'Apellido: '+ self.getApellido() +'\n'
+        cadena += 'Nombre: '+ self.getNombre() +'\n'
+        cadena += 'Sueldo: '+ str(self.getSueldo()) +'\n'
+        cadena += 'Antiguedad: '+ str(self.getAntiguedad()) +'\n'
+        cadena += 'Carrera: '+ self.getCarrera() +'\n'
+        cadena += 'Cargo: '+ self.getCargo() +'\n'
+        cadena += 'Area: '+ self.getArea() +'\n'
+        cadena += 'Tipo: '+ self.getTipo() +'\n'
+        cadena += 'Categoria Incentivo: '+ self.__categoriaIncetivo +'\n'
+        cadena += 'Importe Extra: '+ str(self.__importeExtra) +'\n'
+        return cadena
         

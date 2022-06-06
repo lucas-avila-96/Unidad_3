@@ -13,15 +13,6 @@ class Docente(Personal):
         self.__cargo = cargo
         self.__catedra = catedra
     
-    def __str__(self):
-        cadena = 'Cuil: '+ str(self.getCuil()) +'\n'
-        cadena += 'Apellido: '+ self.getApellido() +'\n'
-        cadena += 'Nombre: '+ self.getNombre() +'\n'
-        cadena += 'Sueldo basico: '+ str(self.getSueldoBasico()) +'\n'
-        cadena += 'Antiguedad: '+ str(self.getAntiguedad()) +'\n'
-        cadena += 'Carrera: '+ self.getCarrera() +'\n'
-        cadena += 'Cargo: '+ self.getCargo() +'\n'
-        return cadena
 
     def getCarrera(self):
         return self.__carrera
@@ -32,8 +23,17 @@ class Docente(Personal):
     def getCatetra(self):
         return self.__catedra
 
-    def setPorcentajeCargo(self, nuevoPorcentaje):
-        self.__cargo = nuevoPorcentaje
+    def getSueldo(self):
+        sueldo = self.__sueldoBasico * (self.__antiguedad/100)
+        if self.__cargo == 'simple':
+            sueldo * (10/100)
+        else:
+            if self.__cargo == 'semiexclusivo':
+                sueldo * (20/100)
+            else:
+                if self.__cargo == 'exclusivo':
+                    sueldo * (50/100)
+        return sueldo
 
     def toJSON(self):
         d = dict(
@@ -42,7 +42,7 @@ class Docente(Personal):
                 cuil = self.getCuil(), 
                 apellido = self.getApellido(), 
                 nombre = self.getNombre(), 
-                sueldoBaisco = self.getSueldoBasico(), 
+                sueldo = self.getSueldo(), 
                 antiguedad = self.getAntiguedad(),
                 carrera = self.__carrera,
                 cargo = self.__cargo,
@@ -50,3 +50,13 @@ class Docente(Personal):
             )
         )
         return d
+
+    def __str__(self):
+        cadena = 'Cuil: '+ str(self.getCuil()) +'\n'
+        cadena += 'Apellido: '+ self.getApellido() +'\n'
+        cadena += 'Nombre: '+ self.getNombre() +'\n'
+        cadena += 'Sueldo: '+ str(self.getSueldo()) +'\n'
+        cadena += 'Antiguedad: '+ str(self.getAntiguedad()) +'\n'
+        cadena += 'Carrera: '+ self.getCarrera() +'\n'
+        cadena += 'Cargo: '+ self.getCargo() +'\n'
+        return cadena

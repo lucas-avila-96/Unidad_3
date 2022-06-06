@@ -115,7 +115,7 @@ class Menu:
         lo = self.ordenarLista(pers)
         for agente in lo:
             print(f'Tipo de agente: {type(agente).__name__}')
-            print(f'Sueldo: {agente.getSueldoBasico()}')
+            print(f'Sueldo: {agente.getSueldo()}')
 
     def opcion7(self, listaAgentes):
         print('Ingrese categoria')
